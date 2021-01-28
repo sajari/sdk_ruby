@@ -1,0 +1,20 @@
+#!/bin/bash
+
+GEN_PATH="$(pwd)/../"
+VERSION=4.0.0
+
+openapi-generator generate \
+  -i https://api-gateway.sajari.com/v4/openapi.json  \
+  -g ruby \
+  -o $GEN_PATH \
+  --artifact-version $VERSION \
+  --http-user-agent "sajari-sdk-ruby-$VERSION" \
+  --git-host "github.com/sajari" \
+  --git-repo-id sdk-ruby \
+  --additional-properties gemVersion=$VERSION \
+  --additional-properties gemHomepage="https://github.com/sajari/sdk-ruby" \
+  --additional-properties gemLicense="MIT license" \
+  --additional-properties gemName="sajari_client" \
+  --additional-properties moduleName="SajariAPIClient"
+
+
