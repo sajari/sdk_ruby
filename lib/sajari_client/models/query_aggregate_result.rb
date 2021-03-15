@@ -26,6 +26,8 @@ module SajariAPIClient
 
     attr_accessor :analysis
 
+    attr_accessor :percentile
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -33,13 +35,9 @@ module SajariAPIClient
         :'count' => :'count',
         :'buckets' => :'buckets',
         :'date' => :'date',
-        :'analysis' => :'analysis'
+        :'analysis' => :'analysis',
+        :'percentile' => :'percentile'
       }
-    end
-
-    # Returns all the JSON keys this model knows about
-    def self.acceptable_attributes
-      attribute_map.values
     end
 
     # Attribute type mapping.
@@ -49,7 +47,8 @@ module SajariAPIClient
         :'count' => :'QueryAggregateResultCount',
         :'buckets' => :'QueryAggregateResultBuckets',
         :'date' => :'QueryAggregateResultDate',
-        :'analysis' => :'QueryAggregateResultAnalysis'
+        :'analysis' => :'QueryAggregateResultAnalysis',
+        :'percentile' => :'QueryAggregateResultPercentile'
       }
     end
 
@@ -93,6 +92,10 @@ module SajariAPIClient
       if attributes.key?(:'analysis')
         self.analysis = attributes[:'analysis']
       end
+
+      if attributes.key?(:'percentile')
+        self.percentile = attributes[:'percentile']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -117,7 +120,8 @@ module SajariAPIClient
           count == o.count &&
           buckets == o.buckets &&
           date == o.date &&
-          analysis == o.analysis
+          analysis == o.analysis &&
+          percentile == o.percentile
     end
 
     # @see the `==` method
@@ -129,7 +133,7 @@ module SajariAPIClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [metric, count, buckets, date, analysis].hash
+      [metric, count, buckets, date, analysis, percentile].hash
     end
 
     # Builds the object from hash
@@ -198,9 +202,7 @@ module SajariAPIClient
           end
         end
       else # model
-        # models (e.g. Pet) or oneOf
-        klass = SajariAPIClient.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        SajariAPIClient.const_get(type).build_from_hash(value)
       end
     end
 
@@ -226,7 +228,7 @@ module SajariAPIClient
           is_nullable = self.class.openapi_nullable.include?(attr)
           next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
         end
-
+        
         hash[param] = _to_hash(value)
       end
       hash
@@ -251,5 +253,4 @@ module SajariAPIClient
     end
 
   end
-
 end

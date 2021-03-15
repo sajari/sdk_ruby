@@ -2,17 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **token** | **String** |  | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**token** | **String** |  | [optional] 
 
 ## Code Sample
 
 ```ruby
-require 'sajari_client'
+require 'SajariAPIClient'
 
-instance = SajariAPIClient::QueryResultTokenClick.new(
-  token: null
-)
+instance = SajariAPIClient::QueryResultTokenClick.new(token: null)
 ```
+
 

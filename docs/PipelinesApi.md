@@ -2,16 +2,17 @@
 
 All URIs are relative to *https://api-gateway.sajari.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_pipeline**](PipelinesApi.md#create_pipeline) | **POST** /v4/collections/{collection_id}/pipelines | Create pipeline |
-| [**generate_pipelines**](PipelinesApi.md#generate_pipelines) | **POST** /v4/collections/{collection_id}:generatePipelines | Generate pipelines |
-| [**get_default_pipeline**](PipelinesApi.md#get_default_pipeline) | **GET** /v4/collections/{collection_id}:getDefaultPipeline | Get default pipeline |
-| [**get_default_version**](PipelinesApi.md#get_default_version) | **GET** /v4/collections/{collection_id}/pipelines/{type}/{name}:getDefaultVersion | Get default pipeline version |
-| [**get_pipeline**](PipelinesApi.md#get_pipeline) | **GET** /v4/collections/{collection_id}/pipelines/{type}/{name}/{version} | Get pipeline |
-| [**list_pipelines**](PipelinesApi.md#list_pipelines) | **GET** /v4/collections/{collection_id}/pipelines | List pipelines |
-| [**set_default_pipeline**](PipelinesApi.md#set_default_pipeline) | **POST** /v4/collections/{collection_id}:setDefaultPipeline | Set default pipeline |
-| [**set_default_version**](PipelinesApi.md#set_default_version) | **POST** /v4/collections/{collection_id}/pipelines/{type}/{name}:setDefaultVersion | Set default pipeline version |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**create_pipeline**](PipelinesApi.md#create_pipeline) | **POST** /v4/collections/{collection_id}/pipelines | Create pipeline
+[**generate_pipelines**](PipelinesApi.md#generate_pipelines) | **POST** /v4/collections/{collection_id}:generatePipelines | Generate pipelines
+[**get_default_pipeline**](PipelinesApi.md#get_default_pipeline) | **GET** /v4/collections/{collection_id}:getDefaultPipeline | Get default pipeline
+[**get_default_version**](PipelinesApi.md#get_default_version) | **GET** /v4/collections/{collection_id}/pipelines/{type}/{name}:getDefaultVersion | Get default pipeline version
+[**get_pipeline**](PipelinesApi.md#get_pipeline) | **GET** /v4/collections/{collection_id}/pipelines/{type}/{name}/{version} | Get pipeline
+[**list_pipelines**](PipelinesApi.md#list_pipelines) | **GET** /v4/collections/{collection_id}/pipelines | List pipelines
+[**set_default_pipeline**](PipelinesApi.md#set_default_pipeline) | **POST** /v4/collections/{collection_id}:setDefaultPipeline | Set default pipeline
+[**set_default_version**](PipelinesApi.md#set_default_version) | **POST** /v4/collections/{collection_id}/pipelines/{type}/{name}:setDefaultVersion | Set default pipeline version
+
 
 
 ## create_pipeline
@@ -49,10 +50,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. |  |
-| **pipeline** | [**Pipeline**](Pipeline.md) | The pipeline to create. |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. | 
+ **pipeline** | [**Pipeline**](Pipeline.md)| The pipeline to create. | 
 
 ### Return type
 
@@ -103,10 +105,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection, e.g. &#x60;my-collection&#x60;. |  |
-| **generate_pipelines_request** | [**GeneratePipelinesRequest**](GeneratePipelinesRequest.md) |  |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection, e.g. &#x60;my-collection&#x60;. | 
+ **generate_pipelines_request** | [**GeneratePipelinesRequest**](GeneratePipelinesRequest.md)|  | 
 
 ### Return type
 
@@ -157,10 +160,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to get the default query pipeline of, e.g. &#x60;my-collection&#x60;. |  |
-| **type** | **String** | The type of the pipeline to get.   - TYPE_UNSPECIFIED: Pipeline type not specified.  - RECORD: Record pipeline.  - QUERY: Query pipeline. | [default to &#39;TYPE_UNSPECIFIED&#39;] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to get the default query pipeline of, e.g. &#x60;my-collection&#x60;. | 
+ **type** | **String**| The type of the pipeline to get.   - TYPE_UNSPECIFIED: Pipeline type not specified.  - RECORD: Record pipeline.  - QUERY: Query pipeline. | [default to &#39;TYPE_UNSPECIFIED&#39;]
 
 ### Return type
 
@@ -215,12 +219,13 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. |  |
-| **type** | **String** | The type of the pipeline to get the default version of. |  |
-| **name** | **String** | The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. |  |
-| **view** | **String** | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. | 
+ **type** | **String**| The type of the pipeline to get the default version of. | 
+ **name** | **String**| The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. | 
+ **view** | **String**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to &#39;VIEW_UNSPECIFIED&#39;]
 
 ### Return type
 
@@ -276,13 +281,14 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection that owns the pipeline, e.g. &#x60;my-collection&#x60;. |  |
-| **type** | **String** | The type of the pipeline to retrieve. |  |
-| **name** | **String** | The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. |  |
-| **version** | **String** | The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. |  |
-| **view** | **String** | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection that owns the pipeline, e.g. &#x60;my-collection&#x60;. | 
+ **type** | **String**| The type of the pipeline to retrieve. | 
+ **name** | **String**| The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. | 
+ **version** | **String**| The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. | 
+ **view** | **String**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to &#39;VIEW_UNSPECIFIED&#39;]
 
 ### Return type
 
@@ -337,12 +343,13 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. |  |
-| **page_size** | **Integer** | The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] |
-| **page_token** | **String** | A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. | [optional] |
-| **view** | **String** | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. | 
+ **page_size** | **Integer**| The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] 
+ **page_token** | **String**| A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. | [optional] 
+ **view** | **String**| The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to &#39;VIEW_UNSPECIFIED&#39;]
 
 ### Return type
 
@@ -393,10 +400,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to set the default query pipeline of, e.g. &#x60;my-collection&#x60;. |  |
-| **set_default_pipeline_request** | [**SetDefaultPipelineRequest**](SetDefaultPipelineRequest.md) |  |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to set the default query pipeline of, e.g. &#x60;my-collection&#x60;. | 
+ **set_default_pipeline_request** | [**SetDefaultPipelineRequest**](SetDefaultPipelineRequest.md)|  | 
 
 ### Return type
 
@@ -449,12 +457,13 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection that owns the pipeline to set the default version of, e.g. &#x60;my-collection&#x60;. |  |
-| **type** | **String** | The type of the pipeline to set the default version of. |  |
-| **name** | **String** | The name of the pipeline to set the default version of, e.g. &#x60;my-pipeline&#x60;. |  |
-| **set_default_version_request** | [**SetDefaultVersionRequest**](SetDefaultVersionRequest.md) |  |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection that owns the pipeline to set the default version of, e.g. &#x60;my-collection&#x60;. | 
+ **type** | **String**| The type of the pipeline to set the default version of. | 
+ **name** | **String**| The name of the pipeline to set the default version of, e.g. &#x60;my-pipeline&#x60;. | 
+ **set_default_version_request** | [**SetDefaultVersionRequest**](SetDefaultVersionRequest.md)|  | 
 
 ### Return type
 

@@ -2,17 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **buckets** | [**Hash&lt;String, QueryAggregateResultBucketsBucket&gt;**](QueryAggregateResultBucketsBucket.md) |  | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**buckets** | [**Hash&lt;String, QueryAggregateResultBucketsBucket&gt;**](QueryAggregateResultBucketsBucket.md) |  | [optional] 
 
 ## Code Sample
 
 ```ruby
-require 'sajari_client'
+require 'SajariAPIClient'
 
-instance = SajariAPIClient::QueryAggregateResultBuckets.new(
-  buckets: null
-)
+instance = SajariAPIClient::QueryAggregateResultBuckets.new(buckets: null)
 ```
+
 

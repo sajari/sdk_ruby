@@ -2,12 +2,13 @@
 
 All URIs are relative to *https://api-gateway.sajari.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**batch_upsert_records**](RecordsApi.md#batch_upsert_records) | **POST** /v4/collections/{collection_id}/records:batchUpsert | Batch upsert records |
-| [**delete_record**](RecordsApi.md#delete_record) | **POST** /v4/collections/{collection_id}/records:delete | Delete record |
-| [**get_record**](RecordsApi.md#get_record) | **POST** /v4/collections/{collection_id}/records:get | Get record |
-| [**upsert_record**](RecordsApi.md#upsert_record) | **POST** /v4/collections/{collection_id}/records:upsert | Upsert record |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**batch_upsert_records**](RecordsApi.md#batch_upsert_records) | **POST** /v4/collections/{collection_id}/records:batchUpsert | Batch upsert records
+[**delete_record**](RecordsApi.md#delete_record) | **POST** /v4/collections/{collection_id}/records:delete | Delete record
+[**get_record**](RecordsApi.md#get_record) | **POST** /v4/collections/{collection_id}/records:get | Get record
+[**upsert_record**](RecordsApi.md#upsert_record) | **POST** /v4/collections/{collection_id}/records:upsert | Upsert record
+
 
 
 ## batch_upsert_records
@@ -45,10 +46,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. |  |
-| **batch_upsert_records_request** | [**BatchUpsertRecordsRequest**](BatchUpsertRecordsRequest.md) |  |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to upsert the records in, e.g. &#x60;my-collection&#x60;. | 
+ **batch_upsert_records_request** | [**BatchUpsertRecordsRequest**](BatchUpsertRecordsRequest.md)|  | 
 
 ### Return type
 
@@ -99,10 +101,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. |  |
-| **delete_record_request** | [**DeleteRecordRequest**](DeleteRecordRequest.md) |  |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection that contains the record to delete, e.g. &#x60;my-collection&#x60;. | 
+ **delete_record_request** | [**DeleteRecordRequest**](DeleteRecordRequest.md)|  | 
 
 ### Return type
 
@@ -153,10 +156,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. |  |
-| **get_record_request** | [**GetRecordRequest**](GetRecordRequest.md) |  |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection that contains the record to retrieve, e.g. &#x60;my-collection&#x60;. | 
+ **get_record_request** | [**GetRecordRequest**](GetRecordRequest.md)|  | 
 
 ### Return type
 
@@ -207,10 +211,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. |  |
-| **upsert_record_request** | [**UpsertRecordRequest**](UpsertRecordRequest.md) |  |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to upsert the record in, e.g. &#x60;my-collection&#x60;. | 
+ **upsert_record_request** | [**UpsertRecordRequest**](UpsertRecordRequest.md)|  | 
 
 ### Return type
 

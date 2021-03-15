@@ -2,11 +2,12 @@
 
 All URIs are relative to *https://api-gateway.sajari.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**batch_create_schema_fields**](SchemaApi.md#batch_create_schema_fields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate | Batch create schema fields |
-| [**create_schema_field**](SchemaApi.md#create_schema_field) | **POST** /v4/collections/{collection_id}/schemaFields | Create schema field |
-| [**list_schema_fields**](SchemaApi.md#list_schema_fields) | **GET** /v4/collections/{collection_id}/schemaFields | List schema fields |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**batch_create_schema_fields**](SchemaApi.md#batch_create_schema_fields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate | Batch create schema fields
+[**create_schema_field**](SchemaApi.md#create_schema_field) | **POST** /v4/collections/{collection_id}/schemaFields | Create schema field
+[**list_schema_fields**](SchemaApi.md#list_schema_fields) | **GET** /v4/collections/{collection_id}/schemaFields | List schema fields
+
 
 
 ## batch_create_schema_fields
@@ -44,10 +45,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. |  |
-| **batch_create_schema_fields_request** | [**BatchCreateSchemaFieldsRequest**](BatchCreateSchemaFieldsRequest.md) |  |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. | 
+ **batch_create_schema_fields_request** | [**BatchCreateSchemaFieldsRequest**](BatchCreateSchemaFieldsRequest.md)|  | 
 
 ### Return type
 
@@ -98,10 +100,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. |  |
-| **schema_field** | [**SchemaField**](SchemaField.md) | The schema field to create. |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. | 
+ **schema_field** | [**SchemaField**](SchemaField.md)| The schema field to create. | 
 
 ### Return type
 
@@ -155,11 +158,12 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. |  |
-| **page_size** | **Integer** | The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] |
-| **page_token** | **String** | A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. | 
+ **page_size** | **Integer**| The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] 
+ **page_token** | **String**| A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional] 
 
 ### Return type
 

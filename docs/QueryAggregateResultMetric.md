@@ -2,17 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **value** | **Float** |  | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**value** | **Float** |  | [optional] 
 
 ## Code Sample
 
 ```ruby
-require 'sajari_client'
+require 'SajariAPIClient'
 
-instance = SajariAPIClient::QueryAggregateResultMetric.new(
-  value: null
-)
+instance = SajariAPIClient::QueryAggregateResultMetric.new(value: null)
 ```
+
 

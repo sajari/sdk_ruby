@@ -2,21 +2,20 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **code** | **Integer** |  | [optional] |
-| **message** | **String** |  | [optional] |
-| **details** | [**Array&lt;ProtobufAny&gt;**](ProtobufAny.md) |  | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**code** | **Integer** |  | [optional] 
+**message** | **String** |  | [optional] 
+**details** | [**Array&lt;ProtobufAny&gt;**](ProtobufAny.md) |  | [optional] 
 
 ## Code Sample
 
 ```ruby
-require 'sajari_client'
+require 'SajariAPIClient'
 
-instance = SajariAPIClient::Error.new(
-  code: null,
-  message: null,
-  details: null
-)
+instance = SajariAPIClient::Error.new(code: null,
+                                 message: null,
+                                 details: null)
 ```
+
 

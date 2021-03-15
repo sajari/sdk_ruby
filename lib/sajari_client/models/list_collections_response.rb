@@ -29,11 +29,6 @@ module SajariAPIClient
       }
     end
 
-    # Returns all the JSON keys this model knows about
-    def self.acceptable_attributes
-      attribute_map.values
-    end
-
     # Attribute type mapping.
     def self.openapi_types
       {
@@ -174,9 +169,7 @@ module SajariAPIClient
           end
         end
       else # model
-        # models (e.g. Pet) or oneOf
-        klass = SajariAPIClient.const_get(type)
-        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+        SajariAPIClient.const_get(type).build_from_hash(value)
       end
     end
 
@@ -202,7 +195,7 @@ module SajariAPIClient
           is_nullable = self.class.openapi_nullable.include?(attr)
           next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
         end
-
+        
         hash[param] = _to_hash(value)
       end
       hash
@@ -227,5 +220,4 @@ module SajariAPIClient
     end
 
   end
-
 end

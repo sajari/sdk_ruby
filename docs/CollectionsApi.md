@@ -2,14 +2,15 @@
 
 All URIs are relative to *https://api-gateway.sajari.com*
 
-| Method | HTTP request | Description |
-| ------ | ------------ | ----------- |
-| [**create_collection**](CollectionsApi.md#create_collection) | **POST** /v4/collections | Create collection |
-| [**delete_collection**](CollectionsApi.md#delete_collection) | **DELETE** /v4/collections/{collection_id} | Delete collection |
-| [**get_collection**](CollectionsApi.md#get_collection) | **GET** /v4/collections/{collection_id} | Get collection |
-| [**list_collections**](CollectionsApi.md#list_collections) | **GET** /v4/collections | List collections |
-| [**query_collection**](CollectionsApi.md#query_collection) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection |
-| [**update_collection**](CollectionsApi.md#update_collection) | **PATCH** /v4/collections/{collection_id} | Update collection |
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**create_collection**](CollectionsApi.md#create_collection) | **POST** /v4/collections | Create collection
+[**delete_collection**](CollectionsApi.md#delete_collection) | **DELETE** /v4/collections/{collection_id} | Delete collection
+[**get_collection**](CollectionsApi.md#get_collection) | **GET** /v4/collections/{collection_id} | Get collection
+[**list_collections**](CollectionsApi.md#list_collections) | **GET** /v4/collections | List collections
+[**query_collection**](CollectionsApi.md#query_collection) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection
+[**update_collection**](CollectionsApi.md#update_collection) | **PATCH** /v4/collections/{collection_id} | Update collection
+
 
 
 ## create_collection
@@ -47,10 +48,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. |  |
-| **collection** | [**Collection**](Collection.md) | Details of the collection to create. |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. | 
+ **collection** | [**Collection**](Collection.md)| Details of the collection to create. | 
 
 ### Return type
 
@@ -100,9 +102,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to delete, e.g. &#x60;my-collection&#x60;. |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to delete, e.g. &#x60;my-collection&#x60;. | 
 
 ### Return type
 
@@ -152,9 +155,10 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to retrieve, e.g. &#x60;my-collection&#x60;. |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to retrieve, e.g. &#x60;my-collection&#x60;. | 
 
 ### Return type
 
@@ -207,10 +211,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **page_size** | **Integer** | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. | [optional] |
-| **page_token** | **String** | A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page_size** | **Integer**| The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. | [optional] 
+ **page_token** | **String**| A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. | [optional] 
 
 ### Return type
 
@@ -261,10 +266,11 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to query, e.g. &#x60;my-collection&#x60;. |  |
-| **query_collection_request** | [**QueryCollectionRequest**](QueryCollectionRequest.md) |  |  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to query, e.g. &#x60;my-collection&#x60;. | 
+ **query_collection_request** | [**QueryCollectionRequest**](QueryCollectionRequest.md)|  | 
 
 ### Return type
 
@@ -318,11 +324,12 @@ end
 
 ### Parameters
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **collection_id** | **String** | The collection to update, e.g. &#x60;my-collection&#x60;. |  |
-| **collection** | [**Collection**](Collection.md) | Details of the collection to update. |  |
-| **update_mask** | **String** | The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **String**| The collection to update, e.g. &#x60;my-collection&#x60;. | 
+ **collection** | [**Collection**](Collection.md)| Details of the collection to update. | 
+ **update_mask** | **String**| The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional] 
 
 ### Return type
 

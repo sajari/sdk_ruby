@@ -2,21 +2,20 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **schema_fields** | [**Array&lt;SchemaField&gt;**](SchemaField.md) | The schema fields. | [optional] |
-| **total_size** | **Integer** | Maximum number of fields to return. | [optional] |
-| **next_page_token** | **String** | A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages. | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**schema_fields** | [**Array&lt;SchemaField&gt;**](SchemaField.md) | The schema fields. | [optional] 
+**total_size** | **Integer** | Maximum number of fields to return. | [optional] 
+**next_page_token** | **String** | A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages. | [optional] 
 
 ## Code Sample
 
 ```ruby
-require 'sajari_client'
+require 'SajariAPIClient'
 
-instance = SajariAPIClient::ListSchemaFieldsResponse.new(
-  schema_fields: null,
-  total_size: null,
-  next_page_token: null
-)
+instance = SajariAPIClient::ListSchemaFieldsResponse.new(schema_fields: null,
+                                 total_size: null,
+                                 next_page_token: null)
 ```
+
 

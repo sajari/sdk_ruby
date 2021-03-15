@@ -2,19 +2,18 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **pos** | **String** |  | [optional] |
-| **neg** | **String** |  | [optional] |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pos** | **String** |  | [optional] 
+**neg** | **String** |  | [optional] 
 
 ## Code Sample
 
 ```ruby
-require 'sajari_client'
+require 'SajariAPIClient'
 
-instance = SajariAPIClient::QueryResultTokenPosNeg.new(
-  pos: null,
-  neg: null
-)
+instance = SajariAPIClient::QueryResultTokenPosNeg.new(pos: null,
+                                 neg: null)
 ```
+
 

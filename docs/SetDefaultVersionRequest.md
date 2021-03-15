@@ -2,17 +2,16 @@
 
 ## Properties
 
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **version** | **String** | The version to use as a default for this pipeline, e.g. &#x60;42&#x60;. |  |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**version** | **String** | The version to use as a default for this pipeline, e.g. &#x60;42&#x60;. | 
 
 ## Code Sample
 
 ```ruby
-require 'sajari_client'
+require 'SajariAPIClient'
 
-instance = SajariAPIClient::SetDefaultVersionRequest.new(
-  version: null
-)
+instance = SajariAPIClient::SetDefaultVersionRequest.new(version: null)
 ```
+
 

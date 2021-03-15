@@ -14,26 +14,26 @@ require 'date'
 require 'time'
 
 module SajariAPIClient
-  class GeneratePipelinesRequest
-    # Prioritized list of fields to search.
-    attr_accessor :searchable_fields
+  class PercentileDataPoint
+    # The input point.
+    attr_accessor :point
 
-    # List of fields to train query suggestions from.
-    attr_accessor :query_training_fields
+    # The corresponding value for the given point.
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'searchable_fields' => :'searchable_fields',
-        :'query_training_fields' => :'query_training_fields'
+        :'point' => :'point',
+        :'value' => :'value'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'searchable_fields' => :'Array<String>',
-        :'query_training_fields' => :'Array<String>'
+        :'point' => :'Float',
+        :'value' => :'Float'
       }
     end
 
@@ -47,27 +47,23 @@ module SajariAPIClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::GeneratePipelinesRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::PercentileDataPoint` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::GeneratePipelinesRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::PercentileDataPoint`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'searchable_fields')
-        if (value = attributes[:'searchable_fields']).is_a?(Array)
-          self.searchable_fields = value
-        end
+      if attributes.key?(:'point')
+        self.point = attributes[:'point']
       end
 
-      if attributes.key?(:'query_training_fields')
-        if (value = attributes[:'query_training_fields']).is_a?(Array)
-          self.query_training_fields = value
-        end
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -75,17 +71,12 @@ module SajariAPIClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @searchable_fields.nil?
-        invalid_properties.push('invalid value for "searchable_fields", searchable_fields cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @searchable_fields.nil?
       true
     end
 
@@ -94,8 +85,8 @@ module SajariAPIClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          searchable_fields == o.searchable_fields &&
-          query_training_fields == o.query_training_fields
+          point == o.point &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -107,7 +98,7 @@ module SajariAPIClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [searchable_fields, query_training_fields].hash
+      [point, value].hash
     end
 
     # Builds the object from hash
