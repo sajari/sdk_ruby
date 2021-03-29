@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/sajari/sdk-ruby"
   s.summary     = "Sajari API Ruby Gem"
   s.description = "Sajari is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications."
-  s.license     = "MIT license"
+  s.license     = "MIT"
   s.required_ruby_version = ">= 2.4"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
