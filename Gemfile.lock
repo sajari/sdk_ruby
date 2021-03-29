@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sajari_client (4.0.0)
+    sdk-ruby (4.0.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM
@@ -63,7 +63,7 @@ DEPENDENCIES
   rake (~> 13.0.1)
   rspec (~> 3.6, >= 3.6.0)
   rubocop (~> 0.66.0)
-  sajari_client!
+  sdk-ruby!
 
 BUNDLED WITH
    2.2.3
