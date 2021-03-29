@@ -27,7 +27,7 @@ Create a new pipeline.  Pipelines are immutable once created. If you want to cha
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -82,7 +82,7 @@ Generate basic record, query and autocomplete pipeline templates. Use these temp
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -137,7 +137,7 @@ Get the default pipeline for a collection.  Every collection has a default recor
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -192,7 +192,7 @@ Get the default version for a given pipeline.  The default version of a pipeline
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -253,7 +253,7 @@ Retrieve the details of a pipeline. Supply the type, name and version.  To retri
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -316,7 +316,7 @@ Retrieve a list of pipelines.
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -377,7 +377,7 @@ Set the default pipeline for a collection.  Every collection has a default recor
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -432,7 +432,7 @@ Set the default version for a given pipeline.  The default version of a pipeline
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth

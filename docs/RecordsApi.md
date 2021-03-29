@@ -23,7 +23,7 @@ The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -78,7 +78,7 @@ Delete a record with the given key.
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -133,7 +133,7 @@ Retrieve a record with the given key.
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -188,7 +188,7 @@ If the record does not exist in your collection it is inserted. If it does exist
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth

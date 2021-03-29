@@ -1,4 +1,4 @@
-# sajari_client
+# sdk-ruby
 
 SajariAPIClient - the Ruby gem for the Sajari API
 
@@ -18,28 +18,28 @@ For more information, please visit [https://www.sajari.com/company/contact](http
 To build the Ruby code into a gem:
 
 ```shell
-gem build sajari_client.gemspec
+gem build sdk-ruby.gemspec
 ```
 
 Then either install the gem locally:
 
 ```shell
-gem install ./sajari_client-4.0.0.gem
+gem install ./sdk-ruby-4.0.0.gem
 ```
 
-(for development, run `gem install --dev ./sajari_client-4.0.0.gem` to install the development dependencies)
+(for development, run `gem install --dev ./sdk-ruby-4.0.0.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'sajari_client', '~> 4.0.0'
+    gem 'sdk-ruby', '~> 4.0.0'
 
 ### Install from Git
 
 If the Ruby gem is hosted at a git repository: https://github.com/sajari/GIT_USER_ID/sdk-ruby, then add the following in the Gemfile:
 
-    gem 'sajari_client', :git => 'https://github.com/sajari/GIT_USER_ID/sdk-ruby.git'
+    gem 'sdk-ruby', :git => 'https://github.com/sajari/GIT_USER_ID/sdk-ruby.git'
 
 ### Include the Ruby code directly
 
@@ -55,7 +55,7 @@ Please follow the [installation](#installation) procedure and then run the follo
 
 ```ruby
 # Load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 
 # Setup authorization
 SajariAPIClient.configure do |config|

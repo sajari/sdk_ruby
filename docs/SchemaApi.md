@@ -22,7 +22,7 @@ The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) c
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -77,7 +77,7 @@ Create a new field in your collection's schema.
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -132,7 +132,7 @@ Retrieve a list of schema fields in the collection.
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth

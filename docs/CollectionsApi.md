@@ -25,7 +25,7 @@ Create an empty collection.  Before records can be added to a collection, the sc
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -80,7 +80,7 @@ Delete a collection and all of its associated data.  > Note: this operation cann
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -133,7 +133,7 @@ Retrieve the details of a collection.
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -186,7 +186,7 @@ Retrieve a list of collections in the account.
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -243,7 +243,7 @@ Query the collection to search for records.  The following example demonstrates 
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -298,7 +298,7 @@ Update the details of a collection.
 
 ```ruby
 # load the gem
-require 'sajari_client'
+require 'sdk-ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
