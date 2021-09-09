@@ -17,6 +17,7 @@ docs/Collection.md
 docs/CollectionsApi.md
 docs/DeleteRecordRequest.md
 docs/Error.md
+docs/EventsApi.md
 docs/GeneratePipelinesRequest.md
 docs/GeneratePipelinesResponse.md
 docs/GetDefaultPipelineResponse.md
@@ -59,6 +60,7 @@ docs/SchemaApi.md
 docs/SchemaField.md
 docs/SchemaFieldMode.md
 docs/SchemaFieldType.md
+docs/SendEventRequest.md
 docs/SetDefaultPipelineRequest.md
 docs/SetDefaultVersionRequest.md
 docs/Status.md
@@ -67,6 +69,7 @@ docs/UpsertRecordRequestPipeline.md
 docs/UpsertRecordResponse.md
 lib/sdk-ruby.rb
 lib/sdk-ruby/api/collections_api.rb
+lib/sdk-ruby/api/events_api.rb
 lib/sdk-ruby/api/pipelines_api.rb
 lib/sdk-ruby/api/records_api.rb
 lib/sdk-ruby/api/schema_api.rb
@@ -125,6 +128,7 @@ lib/sdk-ruby/models/record_key.rb
 lib/sdk-ruby/models/schema_field.rb
 lib/sdk-ruby/models/schema_field_mode.rb
 lib/sdk-ruby/models/schema_field_type.rb
+lib/sdk-ruby/models/send_event_request.rb
 lib/sdk-ruby/models/set_default_pipeline_request.rb
 lib/sdk-ruby/models/set_default_version_request.rb
 lib/sdk-ruby/models/status.rb
@@ -133,6 +137,8 @@ lib/sdk-ruby/models/upsert_record_request_pipeline.rb
 lib/sdk-ruby/models/upsert_record_response.rb
 lib/sdk-ruby/version.rb
 sdk-ruby.gemspec
+spec/api/events_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
+spec/models/send_event_request_spec.rb
 spec/spec_helper.rb

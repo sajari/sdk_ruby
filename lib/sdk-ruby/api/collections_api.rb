@@ -92,7 +92,7 @@ module SajariAPIClient
     end
 
     # Delete collection
-    # Delete a collection and all of its associated data.  > Note: this operation cannot be reversed.
+    # Delete a collection and all of its associated data.  > Note: This operation cannot be reversed.
     # @param collection_id [String] The collection to delete, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [AnyType]
@@ -102,7 +102,7 @@ module SajariAPIClient
     end
 
     # Delete collection
-    # Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+    # Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
     # @param collection_id [String] The collection to delete, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AnyType, Integer, Hash)>] AnyType data, response status code and response headers

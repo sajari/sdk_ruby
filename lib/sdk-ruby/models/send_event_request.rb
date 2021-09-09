@@ -14,30 +14,37 @@ require 'date'
 require 'time'
 
 module SajariAPIClient
-  # A request to perform a search using a pipeline.
-  class QueryCollectionRequest
-    attr_accessor :pipeline
+  # A request to send an event to the ranking system after a user interacts with a search result.
+  class SendEventRequest
+    # The name of event, e.g. `click`, `purchase`.
+    attr_accessor :name
 
-    # The initial values for the variables the pipeline operates on and transforms throughout its steps.  The most important variable is `q` which is the query the user entered, for example:  ```json { \"q\": \"search terms\" } ```  To paginate through results, set the variables `page` and `resultsPerPage`, for example:  ```json { \"q\": \"search terms\", \"page\": 5, \"resultsPerPage\": 20 } ```  To sort results, set the variable `sort` to the name of one of your collection's schema fields, for example:  ```json { \"q\": \"search terms\", \"sort\": \"name\" } ```  To sort in reverse, prefix the schema field with a minus sign `-`, for example:  ```json { \"q\": \"search terms\", \"sort\": \"-name\" } ```
-    attr_accessor :variables
+    # The token corresponding to the search result that was interacted with, e.g. `eyJ...`.
+    attr_accessor :token
 
-    attr_accessor :tracking
+    # The weight assigned to the event.  Generally a sensible weight is 1. If you want to weight an event in a certain way you can use a value other than 1. For example, if you want to capture profit in an event, you could set the weight to a value that represents the profit.
+    attr_accessor :weight
+
+    # An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string
+    attr_accessor :metadata
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'pipeline' => :'pipeline',
-        :'variables' => :'variables',
-        :'tracking' => :'tracking'
+        :'name' => :'name',
+        :'token' => :'token',
+        :'weight' => :'weight',
+        :'metadata' => :'metadata'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'pipeline' => :'QueryCollectionRequestPipeline',
-        :'variables' => :'Object',
-        :'tracking' => :'QueryCollectionRequestTracking'
+        :'name' => :'String',
+        :'token' => :'String',
+        :'weight' => :'Integer',
+        :'metadata' => :'Hash<String, Object>'
       }
     end
 
@@ -51,27 +58,33 @@ module SajariAPIClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::QueryCollectionRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::SendEventRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::QueryCollectionRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::SendEventRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'pipeline')
-        self.pipeline = attributes[:'pipeline']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'variables')
-        self.variables = attributes[:'variables']
+      if attributes.key?(:'token')
+        self.token = attributes[:'token']
       end
 
-      if attributes.key?(:'tracking')
-        self.tracking = attributes[:'tracking']
+      if attributes.key?(:'weight')
+        self.weight = attributes[:'weight']
+      end
+
+      if attributes.key?(:'metadata')
+        if (value = attributes[:'metadata']).is_a?(Hash)
+          self.metadata = value
+        end
       end
     end
 
@@ -79,8 +92,12 @@ module SajariAPIClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @variables.nil?
-        invalid_properties.push('invalid value for "variables", variables cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @token.nil?
+        invalid_properties.push('invalid value for "token", token cannot be nil.')
       end
 
       invalid_properties
@@ -89,7 +106,8 @@ module SajariAPIClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @variables.nil?
+      return false if @name.nil?
+      return false if @token.nil?
       true
     end
 
@@ -98,9 +116,10 @@ module SajariAPIClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          pipeline == o.pipeline &&
-          variables == o.variables &&
-          tracking == o.tracking
+          name == o.name &&
+          token == o.token &&
+          weight == o.weight &&
+          metadata == o.metadata
     end
 
     # @see the `==` method
@@ -112,7 +131,7 @@ module SajariAPIClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [pipeline, variables, tracking].hash
+      [name, token, weight, metadata].hash
     end
 
     # Builds the object from hash
