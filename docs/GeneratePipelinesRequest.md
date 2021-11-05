@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**searchable_fields** | **Array&lt;String&gt;** | Prioritized list of fields to search. | 
-**query_training_fields** | **Array&lt;String&gt;** | List of fields to train query suggestions from. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **query_training_fields** | **Array&lt;String&gt;** | List of fields to train query suggestions from. | [optional] |
+| **searchable_fields** | **Array&lt;String&gt;** | Prioritized list of fields to search. |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk-ruby'
 
-instance = SajariAPIClient::GeneratePipelinesRequest.new(searchable_fields: null,
-                                 query_training_fields: null)
+instance = SajariAPIClient::GeneratePipelinesRequest.new(
+  query_training_fields: null,
+  searchable_fields: null
+)
 ```
-
 

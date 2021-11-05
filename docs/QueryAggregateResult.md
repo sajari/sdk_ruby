@@ -2,26 +2,27 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**metric** | [**QueryAggregateResultMetric**](QueryAggregateResultMetric.md) |  | [optional] 
-**count** | [**QueryAggregateResultCount**](QueryAggregateResultCount.md) |  | [optional] 
-**buckets** | [**QueryAggregateResultBuckets**](QueryAggregateResultBuckets.md) |  | [optional] 
-**date** | [**QueryAggregateResultDate**](QueryAggregateResultDate.md) |  | [optional] 
-**analysis** | [**QueryAggregateResultAnalysis**](QueryAggregateResultAnalysis.md) |  | [optional] 
-**percentile** | [**QueryAggregateResultPercentile**](QueryAggregateResultPercentile.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **analysis** | [**QueryAggregateResultAnalysis**](QueryAggregateResultAnalysis.md) |  | [optional] |
+| **buckets** | [**QueryAggregateResultBuckets**](QueryAggregateResultBuckets.md) |  | [optional] |
+| **count** | [**QueryAggregateResultCount**](QueryAggregateResultCount.md) |  | [optional] |
+| **date** | [**QueryAggregateResultDate**](QueryAggregateResultDate.md) |  | [optional] |
+| **metric** | [**QueryAggregateResultMetric**](QueryAggregateResultMetric.md) |  | [optional] |
+| **percentile** | [**QueryAggregateResultPercentile**](QueryAggregateResultPercentile.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk-ruby'
 
-instance = SajariAPIClient::QueryAggregateResult.new(metric: null,
-                                 count: null,
-                                 buckets: null,
-                                 date: null,
-                                 analysis: null,
-                                 percentile: null)
+instance = SajariAPIClient::QueryAggregateResult.new(
+  analysis: null,
+  buckets: null,
+  count: null,
+  date: null,
+  metric: null,
+  percentile: null
+)
 ```
-
 

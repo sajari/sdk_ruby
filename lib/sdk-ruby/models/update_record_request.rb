@@ -14,25 +14,21 @@ require 'date'
 require 'time'
 
 module SajariAPIClient
-  class QueryResult
-    # Index score.
-    attr_accessor :index_score
+  class UpdateRecordRequest
+    attr_accessor :key
 
-    # An object made up of field-value pairs that contains the record data.
+    # The record to update.
     attr_accessor :record
 
-    # The normalized score attributed to this record. Combines the index score and feature score.
-    attr_accessor :score
-
-    attr_accessor :token
+    # The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  For each field that you want to update, provide a corresponding value in the record object containing the new value.
+    attr_accessor :update_mask
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'index_score' => :'index_score',
+        :'key' => :'key',
         :'record' => :'record',
-        :'score' => :'score',
-        :'token' => :'token'
+        :'update_mask' => :'update_mask'
       }
     end
 
@@ -44,10 +40,9 @@ module SajariAPIClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'index_score' => :'Float',
-        :'record' => :'Object',
-        :'score' => :'Float',
-        :'token' => :'QueryResultToken'
+        :'key' => :'RecordKey',
+        :'record' => :'Hash<String, Object>',
+        :'update_mask' => :'String'
       }
     end
 
@@ -61,31 +56,29 @@ module SajariAPIClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::QueryResult` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::UpdateRecordRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::QueryResult`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::UpdateRecordRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'index_score')
-        self.index_score = attributes[:'index_score']
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
       end
 
       if attributes.key?(:'record')
-        self.record = attributes[:'record']
+        if (value = attributes[:'record']).is_a?(Hash)
+          self.record = value
+        end
       end
 
-      if attributes.key?(:'score')
-        self.score = attributes[:'score']
-      end
-
-      if attributes.key?(:'token')
-        self.token = attributes[:'token']
+      if attributes.key?(:'update_mask')
+        self.update_mask = attributes[:'update_mask']
       end
     end
 
@@ -93,12 +86,27 @@ module SajariAPIClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @key.nil?
+        invalid_properties.push('invalid value for "key", key cannot be nil.')
+      end
+
+      if @record.nil?
+        invalid_properties.push('invalid value for "record", record cannot be nil.')
+      end
+
+      if @update_mask.nil?
+        invalid_properties.push('invalid value for "update_mask", update_mask cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @key.nil?
+      return false if @record.nil?
+      return false if @update_mask.nil?
       true
     end
 
@@ -107,10 +115,9 @@ module SajariAPIClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          index_score == o.index_score &&
+          key == o.key &&
           record == o.record &&
-          score == o.score &&
-          token == o.token
+          update_mask == o.update_mask
     end
 
     # @see the `==` method
@@ -122,7 +129,7 @@ module SajariAPIClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [index_score, record, score, token].hash
+      [key, record, update_mask].hash
     end
 
     # Builds the object from hash

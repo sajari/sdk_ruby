@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**fields** | [**Array&lt;SchemaField&gt;**](SchemaField.md) | Schema fields created. | [optional] 
-**errors** | [**Array&lt;BatchCreateSchemaFieldsResponseError&gt;**](BatchCreateSchemaFieldsResponseError.md) | Errors that occurred. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **errors** | [**Array&lt;BatchCreateSchemaFieldsResponseError&gt;**](BatchCreateSchemaFieldsResponseError.md) | Errors that occurred. | [optional] |
+| **fields** | [**Array&lt;SchemaField&gt;**](SchemaField.md) | Schema fields created. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk-ruby'
 
-instance = SajariAPIClient::BatchCreateSchemaFieldsResponse.new(fields: null,
-                                 errors: null)
+instance = SajariAPIClient::BatchCreateSchemaFieldsResponse.new(
+  errors: null,
+  fields: null
+)
 ```
-
 

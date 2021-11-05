@@ -2,22 +2,23 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**record** | **Object** | An object made up of field-value pairs that contains the record data. | [optional] 
-**score** | **Float** | The normalized score attributed to this record. Combines the index score and feature score. | [optional] 
-**index_score** | **Float** | Index score. | [optional] 
-**token** | [**QueryResultToken**](QueryResultToken.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **index_score** | **Float** | Index score. | [optional] |
+| **record** | **Object** | An object made up of field-value pairs that contains the record data. | [optional] |
+| **score** | **Float** | The normalized score attributed to this record. Combines the index score and feature score. | [optional] |
+| **token** | [**QueryResultToken**](QueryResultToken.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk-ruby'
 
-instance = SajariAPIClient::QueryResult.new(record: null,
-                                 score: null,
-                                 index_score: null,
-                                 token: null)
+instance = SajariAPIClient::QueryResult.new(
+  index_score: null,
+  record: null,
+  score: null,
+  token: null
+)
 ```
-
 

@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**key** | [**RecordKey**](RecordKey.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **key** | [**RecordKey**](RecordKey.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk-ruby'
 
-instance = SajariAPIClient::DeleteRecordRequest.new(key: null)
+instance = SajariAPIClient::DeleteRecordRequest.new(
+  key: null
+)
 ```
-
 

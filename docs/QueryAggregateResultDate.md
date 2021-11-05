@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**dates** | **Hash&lt;String, Integer&gt;** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **dates** | **Hash&lt;String, Integer&gt;** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk-ruby'
 
-instance = SajariAPIClient::QueryAggregateResultDate.new(dates: null)
+instance = SajariAPIClient::QueryAggregateResultDate.new(
+  dates: null
+)
 ```
-
 
