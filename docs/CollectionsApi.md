@@ -25,7 +25,7 @@ Create an empty collection.  Before records can be added to a collection, the sc
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -97,7 +97,7 @@ Delete a collection and all of its associated data.  > Note: This operation cann
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -167,7 +167,7 @@ Retrieve the details of a collection.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -237,7 +237,7 @@ Retrieve a list of collections in an account.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -311,7 +311,7 @@ Query the collection to search for records.  The following example demonstrates 
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -383,7 +383,7 @@ Query the collection to search for records.  The following example demonstrates 
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -455,7 +455,7 @@ Update the details of a collection.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth

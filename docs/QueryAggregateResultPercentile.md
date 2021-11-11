@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'sdk-ruby'
+require 'sdk_ruby'
 
 instance = SajariAPIClient::QueryAggregateResultPercentile.new(
   cdf: null,

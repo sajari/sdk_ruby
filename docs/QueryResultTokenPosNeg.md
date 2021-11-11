@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'sdk-ruby'
+require 'sdk_ruby'
 
 instance = SajariAPIClient::QueryResultTokenPosNeg.new(
   neg: null,

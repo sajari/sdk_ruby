@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'sdk-ruby'
+require 'sdk_ruby'
 
 instance = SajariAPIClient::GetDefaultPipelineResponse.new(
   pipeline: null

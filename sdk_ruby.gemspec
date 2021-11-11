@@ -13,10 +13,10 @@ OpenAPI Generator version: 5.3.0
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "sdk-ruby/version"
+require "sdk_ruby/version"
 
 Gem::Specification.new do |s|
-  s.name        = "sdk-ruby"
+  s.name        = "sdk_ruby"
   s.version     = SajariAPIClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["OpenAPI-Generator"]

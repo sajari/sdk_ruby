@@ -26,5 +26,5 @@ docker-entrypoint.sh generate \
   --additional-properties gemVersion=$VERSION \
   --additional-properties gemHomepage="https://github.com/sajari/sdk-ruby" \
   --additional-properties gemLicense="MIT" \
-  --additional-properties gemName="sdk-ruby" \
+  --additional-properties gemName="sdk_ruby" \
   --additional-properties moduleName="SajariAPIClient"

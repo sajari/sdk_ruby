@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'sdk-ruby'
+require 'sdk_ruby'
 
 instance = SajariAPIClient::ListSchemaFieldsResponse.new(
   next_page_token: null,

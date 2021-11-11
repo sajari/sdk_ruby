@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'sdk-ruby'
+require 'sdk_ruby'
 
 instance = SajariAPIClient::QueryAggregateResultAnalysis.new(
   avg_length: null,

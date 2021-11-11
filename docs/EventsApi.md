@@ -20,7 +20,7 @@ Send an event to the ranking system after a user interacts with a search result.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -90,7 +90,7 @@ Send an event to the ranking system after a user interacts with a search result.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth

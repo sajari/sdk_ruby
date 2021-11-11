@@ -21,7 +21,7 @@ The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) c
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -93,7 +93,7 @@ Create a new field in a collection's schema.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -165,7 +165,7 @@ Retrieve a list of schema fields in a collection.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth

@@ -12,7 +12,7 @@
 ## Example
 
 ```ruby
-require 'sdk-ruby'
+require 'sdk_ruby'
 
 instance = SajariAPIClient::PipelineStepParamBinding.new(
   bind: null,

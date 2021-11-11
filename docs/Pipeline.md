@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'sdk-ruby'
+require 'sdk_ruby'
 
 instance = SajariAPIClient::Pipeline.new(
   collection_default: null,

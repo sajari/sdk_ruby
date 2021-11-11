@@ -23,7 +23,7 @@ The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -95,7 +95,7 @@ Delete a record with the given key.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -167,7 +167,7 @@ Retrieve a record with the given key.
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -239,7 +239,7 @@ Add or update specific fields within a record with the given values. The updated
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth
@@ -311,7 +311,7 @@ If the record does not exist in the collection it is inserted. If it does exist 
 
 ```ruby
 require 'time'
-require 'sdk-ruby'
+require 'sdk_ruby'
 # setup authorization
 SajariAPIClient.configure do |config|
   # Configure HTTP basic authorization: BasicAuth

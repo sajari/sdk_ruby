@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'sdk-ruby'
+require 'sdk_ruby'
 
 instance = SajariAPIClient::QueryCollectionResponse.new(
   aggregate_filters: null,
