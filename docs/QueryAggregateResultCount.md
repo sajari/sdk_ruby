@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**counts** | **Hash&lt;String, Integer&gt;** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **counts** | **Hash&lt;String, Integer&gt;** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk_ruby'
 
-instance = SajariAPIClient::QueryAggregateResultCount.new(counts: null)
+instance = SajariAPIClient::QueryAggregateResultCount.new(
+  counts: null
+)
 ```
-
 

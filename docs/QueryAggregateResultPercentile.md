@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**percentiles** | [**Array&lt;PercentileDataPoint&gt;**](PercentileDataPoint.md) | The percentile data points. | [optional] 
-**cdf** | [**Array&lt;PercentileDataPoint&gt;**](PercentileDataPoint.md) | The cumulative distribution function (CDF) data points. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **cdf** | [**Array&lt;PercentileDataPoint&gt;**](PercentileDataPoint.md) | The cumulative distribution function (CDF) data points. | [optional] |
+| **percentiles** | [**Array&lt;PercentileDataPoint&gt;**](PercentileDataPoint.md) | The percentile data points. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk_ruby'
 
-instance = SajariAPIClient::QueryAggregateResultPercentile.new(percentiles: null,
-                                 cdf: null)
+instance = SajariAPIClient::QueryAggregateResultPercentile.new(
+  cdf: null,
+  percentiles: null
+)
 ```
-
 

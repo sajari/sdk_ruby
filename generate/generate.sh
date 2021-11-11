@@ -13,7 +13,7 @@ if [ -z "$GEN_PATH" ]; then
     die "GEN_PATH must be set, e.g. /path/to/sajari/sdk-ruby"
 fi
 
-VERSION=4.1.0
+VERSION=4.2.0
 
 docker-entrypoint.sh generate \
   -i /openapi.json  \
@@ -26,5 +26,5 @@ docker-entrypoint.sh generate \
   --additional-properties gemVersion=$VERSION \
   --additional-properties gemHomepage="https://github.com/sajari/sdk-ruby" \
   --additional-properties gemLicense="MIT" \
-  --additional-properties gemName="sdk-ruby" \
+  --additional-properties gemName="sdk_ruby" \
   --additional-properties moduleName="SajariAPIClient"

@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**click** | [**QueryResultTokenClick**](QueryResultTokenClick.md) |  | [optional] 
-**pos_neg** | [**QueryResultTokenPosNeg**](QueryResultTokenPosNeg.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **click** | [**QueryResultTokenClick**](QueryResultTokenClick.md) |  | [optional] |
+| **pos_neg** | [**QueryResultTokenPosNeg**](QueryResultTokenPosNeg.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk_ruby'
 
-instance = SajariAPIClient::QueryResultToken.new(click: null,
-                                 pos_neg: null)
+instance = SajariAPIClient::QueryResultToken.new(
+  click: null,
+  pos_neg: null
+)
 ```
-
 

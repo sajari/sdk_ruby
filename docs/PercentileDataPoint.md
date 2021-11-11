@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**point** | **Float** | The input point. | [optional] 
-**value** | **Float** | The corresponding value for the given point. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **point** | **Float** | The input point. | [optional] |
+| **value** | **Float** | The corresponding value for the given point. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk_ruby'
 
-instance = SajariAPIClient::PercentileDataPoint.new(point: null,
-                                 value: null)
+instance = SajariAPIClient::PercentileDataPoint.new(
+  point: null,
+  value: null
+)
 ```
-
 

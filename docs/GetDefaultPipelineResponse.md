@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**pipeline** | **String** | The name of the pipeline to use when not otherwise specified. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **pipeline** | **String** | The name of the pipeline to use when not otherwise specified. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk_ruby'
 
-instance = SajariAPIClient::GetDefaultPipelineResponse.new(pipeline: null)
+instance = SajariAPIClient::GetDefaultPipelineResponse.new(
+  pipeline: null
+)
 ```
-
 

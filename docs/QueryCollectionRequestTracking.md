@@ -2,24 +2,25 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**type** | [**QueryCollectionRequestTrackingType**](QueryCollectionRequestTrackingType.md) |  | [optional] [default to &#39;TYPE_UNSPECIFIED&#39;]
-**query_id** | **String** | Query ID of the query. If this is empty, then one is generated. | [optional] 
-**sequence** | **Integer** | Sequence number of query. | [optional] 
-**field** | **String** | Tracking field used to identify records in the collection.  Must be unique schema field. | [optional] 
-**data** | **Hash&lt;String, String&gt;** | Custom values to be included in tracking data. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data** | **Hash&lt;String, String&gt;** | Custom values to be included in tracking data. | [optional] |
+| **field** | **String** | Tracking field used to identify records in the collection.  Must be unique schema field. | [optional] |
+| **query_id** | **String** | Query ID of the query. If this is empty, then one is generated. | [optional] |
+| **sequence** | **Integer** | Sequence number of query. | [optional] |
+| **type** | [**QueryCollectionRequestTrackingType**](QueryCollectionRequestTrackingType.md) |  | [optional][default to &#39;TYPE_UNSPECIFIED&#39;] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk_ruby'
 
-instance = SajariAPIClient::QueryCollectionRequestTracking.new(type: null,
-                                 query_id: null,
-                                 sequence: null,
-                                 field: null,
-                                 data: null)
+instance = SajariAPIClient::QueryCollectionRequestTracking.new(
+  data: null,
+  field: null,
+  query_id: null,
+  sequence: null,
+  type: null
+)
 ```
-
 

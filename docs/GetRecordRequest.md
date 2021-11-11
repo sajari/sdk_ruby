@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**key** | [**RecordKey**](RecordKey.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **key** | [**RecordKey**](RecordKey.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk_ruby'
 
-instance = SajariAPIClient::GetRecordRequest.new(key: null)
+instance = SajariAPIClient::GetRecordRequest.new(
+  key: null
+)
 ```
-
 

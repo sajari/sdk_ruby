@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** | Name of bucket. | [optional] 
-**count** | **Integer** | Number of records in the bucket. | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **count** | **Integer** | Number of records in the bucket. | [optional] |
+| **name** | **String** | Name of bucket. | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'SajariAPIClient'
+require 'sdk_ruby'
 
-instance = SajariAPIClient::QueryAggregateResultBucketsBucket.new(name: null,
-                                 count: null)
+instance = SajariAPIClient::QueryAggregateResultBucketsBucket.new(
+  count: null,
+  name: null
+)
 ```
-
 
