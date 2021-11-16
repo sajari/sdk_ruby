@@ -22,9 +22,9 @@ docker-entrypoint.sh generate \
   --artifact-version $VERSION \
   --http-user-agent "sajari-sdk-ruby-$VERSION" \
   --git-host "github.com/sajari" \
-  --git-repo-id sdk-ruby \
+  --git-repo-id sdk_ruby \
   --additional-properties gemVersion=$VERSION \
-  --additional-properties gemHomepage="https://github.com/sajari/sdk-ruby" \
+  --additional-properties gemHomepage="https://github.com/sajari/sdk_ruby" \
   --additional-properties gemLicense="MIT" \
   --additional-properties gemName="sdk_ruby" \
   --additional-properties moduleName="SajariAPIClient"
