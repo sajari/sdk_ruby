@@ -37,9 +37,9 @@ Finally add this to the Gemfile:
 
 ### Install from Git
 
-If the Ruby gem is hosted at a git repository: https://github.com/sajari/GIT_USER_ID/sdk-ruby, then add the following in the Gemfile:
+If the Ruby gem is hosted at a git repository: https://github.com/sajari/GIT_USER_ID/sdk_ruby, then add the following in the Gemfile:
 
-    gem 'sdk_ruby', :git => 'https://github.com/sajari/GIT_USER_ID/sdk-ruby.git'
+    gem 'sdk_ruby', :git => 'https://github.com/sajari/GIT_USER_ID/sdk_ruby.git'
 
 ### Include the Ruby code directly
 
@@ -101,11 +101,21 @@ Class | Method | HTTP request | Description
 *SajariAPIClient::PipelinesApi* | [**list_pipelines**](docs/PipelinesApi.md#list_pipelines) | **GET** /v4/collections/{collection_id}/pipelines | List pipelines
 *SajariAPIClient::PipelinesApi* | [**set_default_pipeline**](docs/PipelinesApi.md#set_default_pipeline) | **POST** /v4/collections/{collection_id}:setDefaultPipeline | Set default pipeline
 *SajariAPIClient::PipelinesApi* | [**set_default_version**](docs/PipelinesApi.md#set_default_version) | **POST** /v4/collections/{collection_id}/pipelines/{type}/{name}:setDefaultVersion | Set default pipeline version
+*SajariAPIClient::PromotionsApi* | [**create_promotion**](docs/PromotionsApi.md#create_promotion) | **POST** /v4/collections/{collection_id}/promotions | Create promotion
+*SajariAPIClient::PromotionsApi* | [**delete_promotion**](docs/PromotionsApi.md#delete_promotion) | **DELETE** /v4/collections/{collection_id}/promotions/{promotion_id} | Delete promotion
+*SajariAPIClient::PromotionsApi* | [**get_promotion**](docs/PromotionsApi.md#get_promotion) | **GET** /v4/collections/{collection_id}/promotions/{promotion_id} | Get promotion
+*SajariAPIClient::PromotionsApi* | [**list_promotions**](docs/PromotionsApi.md#list_promotions) | **GET** /v4/collections/{collection_id}/promotions | List promotions
+*SajariAPIClient::PromotionsApi* | [**update_promotion**](docs/PromotionsApi.md#update_promotion) | **PATCH** /v4/collections/{collection_id}/promotions/{promotion_id} | Update promotion
 *SajariAPIClient::RecordsApi* | [**batch_upsert_records**](docs/RecordsApi.md#batch_upsert_records) | **POST** /v4/collections/{collection_id}/records:batchUpsert | Batch upsert records
 *SajariAPIClient::RecordsApi* | [**delete_record**](docs/RecordsApi.md#delete_record) | **POST** /v4/collections/{collection_id}/records:delete | Delete record
 *SajariAPIClient::RecordsApi* | [**get_record**](docs/RecordsApi.md#get_record) | **POST** /v4/collections/{collection_id}/records:get | Get record
 *SajariAPIClient::RecordsApi* | [**update_record**](docs/RecordsApi.md#update_record) | **POST** /v4/collections/{collection_id}/records:update | Update record
 *SajariAPIClient::RecordsApi* | [**upsert_record**](docs/RecordsApi.md#upsert_record) | **POST** /v4/collections/{collection_id}/records:upsert | Upsert record
+*SajariAPIClient::RedirectsApi* | [**create_redirect**](docs/RedirectsApi.md#create_redirect) | **POST** /v4/collections/{collection_id}/redirects | Create redirect
+*SajariAPIClient::RedirectsApi* | [**delete_redirect**](docs/RedirectsApi.md#delete_redirect) | **DELETE** /v4/collections/{collection_id}/redirects/{redirect_id} | Delete redirect
+*SajariAPIClient::RedirectsApi* | [**get_redirect**](docs/RedirectsApi.md#get_redirect) | **GET** /v4/collections/{collection_id}/redirects/{redirect_id} | Get redirect
+*SajariAPIClient::RedirectsApi* | [**list_redirects**](docs/RedirectsApi.md#list_redirects) | **GET** /v4/collections/{collection_id}/redirects | List redirects
+*SajariAPIClient::RedirectsApi* | [**update_redirect**](docs/RedirectsApi.md#update_redirect) | **PATCH** /v4/collections/{collection_id}/redirects/{redirect_id} | Update redirect
 *SajariAPIClient::SchemaApi* | [**batch_create_schema_fields**](docs/SchemaApi.md#batch_create_schema_fields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate | Batch create schema fields
 *SajariAPIClient::SchemaApi* | [**create_schema_field**](docs/SchemaApi.md#create_schema_field) | **POST** /v4/collections/{collection_id}/schemaFields | Create schema field
 *SajariAPIClient::SchemaApi* | [**list_schema_fields**](docs/SchemaApi.md#list_schema_fields) | **GET** /v4/collections/{collection_id}/schemaFields | List schema fields
@@ -113,6 +123,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [SajariAPIClient::ActivePromotion](docs/ActivePromotion.md)
  - [SajariAPIClient::BatchCreateSchemaFieldsRequest](docs/BatchCreateSchemaFieldsRequest.md)
  - [SajariAPIClient::BatchCreateSchemaFieldsResponse](docs/BatchCreateSchemaFieldsResponse.md)
  - [SajariAPIClient::BatchCreateSchemaFieldsResponseError](docs/BatchCreateSchemaFieldsResponseError.md)
@@ -134,13 +145,20 @@ Class | Method | HTTP request | Description
  - [SajariAPIClient::ListCollectionsResponse](docs/ListCollectionsResponse.md)
  - [SajariAPIClient::ListPipelinesRequestView](docs/ListPipelinesRequestView.md)
  - [SajariAPIClient::ListPipelinesResponse](docs/ListPipelinesResponse.md)
+ - [SajariAPIClient::ListPromotionsResponse](docs/ListPromotionsResponse.md)
+ - [SajariAPIClient::ListRedirectsResponse](docs/ListRedirectsResponse.md)
  - [SajariAPIClient::ListSchemaFieldsResponse](docs/ListSchemaFieldsResponse.md)
  - [SajariAPIClient::PercentileDataPoint](docs/PercentileDataPoint.md)
  - [SajariAPIClient::Pipeline](docs/Pipeline.md)
  - [SajariAPIClient::PipelineStep](docs/PipelineStep.md)
  - [SajariAPIClient::PipelineStepParamBinding](docs/PipelineStepParamBinding.md)
  - [SajariAPIClient::PipelineType](docs/PipelineType.md)
+ - [SajariAPIClient::Promotion](docs/Promotion.md)
+ - [SajariAPIClient::PromotionExclusion](docs/PromotionExclusion.md)
+ - [SajariAPIClient::PromotionFilterBoost](docs/PromotionFilterBoost.md)
  - [SajariAPIClient::PromotionFilterCondition](docs/PromotionFilterCondition.md)
+ - [SajariAPIClient::PromotionPin](docs/PromotionPin.md)
+ - [SajariAPIClient::PromotionRangeBoost](docs/PromotionRangeBoost.md)
  - [SajariAPIClient::ProtobufAny](docs/ProtobufAny.md)
  - [SajariAPIClient::ProtobufNullValue](docs/ProtobufNullValue.md)
  - [SajariAPIClient::QueryAggregateResult](docs/QueryAggregateResult.md)
@@ -162,6 +180,8 @@ Class | Method | HTTP request | Description
  - [SajariAPIClient::QueryResultTokenClick](docs/QueryResultTokenClick.md)
  - [SajariAPIClient::QueryResultTokenPosNeg](docs/QueryResultTokenPosNeg.md)
  - [SajariAPIClient::RecordKey](docs/RecordKey.md)
+ - [SajariAPIClient::Redirect](docs/Redirect.md)
+ - [SajariAPIClient::RedirectResult](docs/RedirectResult.md)
  - [SajariAPIClient::SchemaField](docs/SchemaField.md)
  - [SajariAPIClient::SchemaFieldMode](docs/SchemaFieldMode.md)
  - [SajariAPIClient::SchemaFieldType](docs/SchemaFieldType.md)

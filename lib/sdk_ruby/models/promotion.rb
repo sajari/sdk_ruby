@@ -14,45 +14,67 @@ require 'date'
 require 'time'
 
 module SajariAPIClient
-  class QueryCollectionResponse
-    # A list of the promotions activated when running the query.
-    attr_accessor :active_promotions
+  # Promotion contains a trigger, determining which searches it should be active for, and a list of alterations that should be made to search results when it is active.
+  class Promotion
+    # Output only. The ID of the collection that owns this promotion.
+    attr_accessor :collection_id
 
-    # The aggregates run with filters.
-    attr_accessor :aggregate_filters
+    # Condition expression applied to a search request that determines which searches the promotion is active for.  For example, to apply the promotion's pins and boosts whenever a user searches for 'shoes' set condition to `q = 'shoes'`.
+    attr_accessor :condition
 
-    # The aggregates returned by the query.
-    attr_accessor :aggregates
+    # Output only. Time the promotion was created.
+    attr_accessor :create_time
 
-    attr_accessor :pipeline
+    # If disabled, the promotion will never be triggered.
+    attr_accessor :disabled
 
-    # The total time taken to perform the query.
-    attr_accessor :processing_duration
+    # The promotion's display name.
+    attr_accessor :display_name
 
-    # A mapping of redirects triggered for all possible variations of the query.
-    attr_accessor :redirects
+    # If specified, the promotion is considered disabled after this time.
+    attr_accessor :end_time
 
-    # The results returned by the query.
-    attr_accessor :results
+    # Records to exclude from search results, if the promotion is enabled.
+    attr_accessor :exclusions
 
-    # The total number of results that match the query.
-    attr_accessor :total_size
+    # Filter boosts to apply to searches, if the promotion is enabled.
+    attr_accessor :filter_boosts
 
-    # The modified variables returned by the pipeline after it has finished processing.
-    attr_accessor :variables
+    # Conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion.
+    attr_accessor :filter_conditions
+
+    # Output only. The promotion's ID.
+    attr_accessor :id
+
+    # Fixes items to specific positions in the search results.
+    attr_accessor :pins
+
+    # Range boosts to apply to searches, if the promotion is enabled.
+    attr_accessor :range_boosts
+
+    # If specified, the promotion is considered disabled before this time.
+    attr_accessor :start_time
+
+    # Output only. Time the promotion was last updated.
+    attr_accessor :update_time
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'active_promotions' => :'active_promotions',
-        :'aggregate_filters' => :'aggregate_filters',
-        :'aggregates' => :'aggregates',
-        :'pipeline' => :'pipeline',
-        :'processing_duration' => :'processing_duration',
-        :'redirects' => :'redirects',
-        :'results' => :'results',
-        :'total_size' => :'total_size',
-        :'variables' => :'variables'
+        :'collection_id' => :'collection_id',
+        :'condition' => :'condition',
+        :'create_time' => :'create_time',
+        :'disabled' => :'disabled',
+        :'display_name' => :'display_name',
+        :'end_time' => :'end_time',
+        :'exclusions' => :'exclusions',
+        :'filter_boosts' => :'filter_boosts',
+        :'filter_conditions' => :'filter_conditions',
+        :'id' => :'id',
+        :'pins' => :'pins',
+        :'range_boosts' => :'range_boosts',
+        :'start_time' => :'start_time',
+        :'update_time' => :'update_time'
       }
     end
 
@@ -64,15 +86,20 @@ module SajariAPIClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'active_promotions' => :'Array<ActivePromotion>',
-        :'aggregate_filters' => :'Hash<String, QueryAggregateResult>',
-        :'aggregates' => :'Hash<String, QueryAggregateResult>',
-        :'pipeline' => :'QueryCollectionResponsePipeline',
-        :'processing_duration' => :'String',
-        :'redirects' => :'Hash<String, RedirectResult>',
-        :'results' => :'Array<QueryResult>',
-        :'total_size' => :'String',
-        :'variables' => :'Hash<String, Object>'
+        :'collection_id' => :'String',
+        :'condition' => :'String',
+        :'create_time' => :'Time',
+        :'disabled' => :'Boolean',
+        :'display_name' => :'String',
+        :'end_time' => :'Time',
+        :'exclusions' => :'Array<PromotionExclusion>',
+        :'filter_boosts' => :'Array<PromotionFilterBoost>',
+        :'filter_conditions' => :'Array<PromotionFilterCondition>',
+        :'id' => :'String',
+        :'pins' => :'Array<PromotionPin>',
+        :'range_boosts' => :'Array<PromotionRangeBoost>',
+        :'start_time' => :'Time',
+        :'update_time' => :'Time'
       }
     end
 
@@ -86,63 +113,81 @@ module SajariAPIClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::QueryCollectionResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::Promotion` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::QueryCollectionResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::Promotion`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'active_promotions')
-        if (value = attributes[:'active_promotions']).is_a?(Array)
-          self.active_promotions = value
+      if attributes.key?(:'collection_id')
+        self.collection_id = attributes[:'collection_id']
+      end
+
+      if attributes.key?(:'condition')
+        self.condition = attributes[:'condition']
+      end
+
+      if attributes.key?(:'create_time')
+        self.create_time = attributes[:'create_time']
+      end
+
+      if attributes.key?(:'disabled')
+        self.disabled = attributes[:'disabled']
+      end
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
+      end
+
+      if attributes.key?(:'end_time')
+        self.end_time = attributes[:'end_time']
+      end
+
+      if attributes.key?(:'exclusions')
+        if (value = attributes[:'exclusions']).is_a?(Array)
+          self.exclusions = value
         end
       end
 
-      if attributes.key?(:'aggregate_filters')
-        if (value = attributes[:'aggregate_filters']).is_a?(Hash)
-          self.aggregate_filters = value
+      if attributes.key?(:'filter_boosts')
+        if (value = attributes[:'filter_boosts']).is_a?(Array)
+          self.filter_boosts = value
         end
       end
 
-      if attributes.key?(:'aggregates')
-        if (value = attributes[:'aggregates']).is_a?(Hash)
-          self.aggregates = value
+      if attributes.key?(:'filter_conditions')
+        if (value = attributes[:'filter_conditions']).is_a?(Array)
+          self.filter_conditions = value
         end
       end
 
-      if attributes.key?(:'pipeline')
-        self.pipeline = attributes[:'pipeline']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'processing_duration')
-        self.processing_duration = attributes[:'processing_duration']
-      end
-
-      if attributes.key?(:'redirects')
-        if (value = attributes[:'redirects']).is_a?(Hash)
-          self.redirects = value
+      if attributes.key?(:'pins')
+        if (value = attributes[:'pins']).is_a?(Array)
+          self.pins = value
         end
       end
 
-      if attributes.key?(:'results')
-        if (value = attributes[:'results']).is_a?(Array)
-          self.results = value
+      if attributes.key?(:'range_boosts')
+        if (value = attributes[:'range_boosts']).is_a?(Array)
+          self.range_boosts = value
         end
       end
 
-      if attributes.key?(:'total_size')
-        self.total_size = attributes[:'total_size']
+      if attributes.key?(:'start_time')
+        self.start_time = attributes[:'start_time']
       end
 
-      if attributes.key?(:'variables')
-        if (value = attributes[:'variables']).is_a?(Hash)
-          self.variables = value
-        end
+      if attributes.key?(:'update_time')
+        self.update_time = attributes[:'update_time']
       end
     end
 
@@ -150,12 +195,22 @@ module SajariAPIClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @condition.nil?
+        invalid_properties.push('invalid value for "condition", condition cannot be nil.')
+      end
+
+      if @display_name.nil?
+        invalid_properties.push('invalid value for "display_name", display_name cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @condition.nil?
+      return false if @display_name.nil?
       true
     end
 
@@ -164,15 +219,20 @@ module SajariAPIClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          active_promotions == o.active_promotions &&
-          aggregate_filters == o.aggregate_filters &&
-          aggregates == o.aggregates &&
-          pipeline == o.pipeline &&
-          processing_duration == o.processing_duration &&
-          redirects == o.redirects &&
-          results == o.results &&
-          total_size == o.total_size &&
-          variables == o.variables
+          collection_id == o.collection_id &&
+          condition == o.condition &&
+          create_time == o.create_time &&
+          disabled == o.disabled &&
+          display_name == o.display_name &&
+          end_time == o.end_time &&
+          exclusions == o.exclusions &&
+          filter_boosts == o.filter_boosts &&
+          filter_conditions == o.filter_conditions &&
+          id == o.id &&
+          pins == o.pins &&
+          range_boosts == o.range_boosts &&
+          start_time == o.start_time &&
+          update_time == o.update_time
     end
 
     # @see the `==` method
@@ -184,7 +244,7 @@ module SajariAPIClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active_promotions, aggregate_filters, aggregates, pipeline, processing_duration, redirects, results, total_size, variables].hash
+      [collection_id, condition, create_time, disabled, display_name, end_time, exclusions, filter_boosts, filter_conditions, id, pins, range_boosts, start_time, update_time].hash
     end
 
     # Builds the object from hash

@@ -14,45 +14,13 @@ require 'date'
 require 'time'
 
 module SajariAPIClient
-  class QueryCollectionResponse
-    # A list of the promotions activated when running the query.
-    attr_accessor :active_promotions
-
-    # The aggregates run with filters.
-    attr_accessor :aggregate_filters
-
-    # The aggregates returned by the query.
-    attr_accessor :aggregates
-
-    attr_accessor :pipeline
-
-    # The total time taken to perform the query.
-    attr_accessor :processing_duration
-
-    # A mapping of redirects triggered for all possible variations of the query.
-    attr_accessor :redirects
-
-    # The results returned by the query.
-    attr_accessor :results
-
-    # The total number of results that match the query.
-    attr_accessor :total_size
-
-    # The modified variables returned by the pipeline after it has finished processing.
-    attr_accessor :variables
+  class PromotionExclusion
+    attr_accessor :key
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'active_promotions' => :'active_promotions',
-        :'aggregate_filters' => :'aggregate_filters',
-        :'aggregates' => :'aggregates',
-        :'pipeline' => :'pipeline',
-        :'processing_duration' => :'processing_duration',
-        :'redirects' => :'redirects',
-        :'results' => :'results',
-        :'total_size' => :'total_size',
-        :'variables' => :'variables'
+        :'key' => :'key'
       }
     end
 
@@ -64,15 +32,7 @@ module SajariAPIClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'active_promotions' => :'Array<ActivePromotion>',
-        :'aggregate_filters' => :'Hash<String, QueryAggregateResult>',
-        :'aggregates' => :'Hash<String, QueryAggregateResult>',
-        :'pipeline' => :'QueryCollectionResponsePipeline',
-        :'processing_duration' => :'String',
-        :'redirects' => :'Hash<String, RedirectResult>',
-        :'results' => :'Array<QueryResult>',
-        :'total_size' => :'String',
-        :'variables' => :'Hash<String, Object>'
+        :'key' => :'RecordKey'
       }
     end
 
@@ -86,63 +46,19 @@ module SajariAPIClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::QueryCollectionResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `SajariAPIClient::PromotionExclusion` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::QueryCollectionResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `SajariAPIClient::PromotionExclusion`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'active_promotions')
-        if (value = attributes[:'active_promotions']).is_a?(Array)
-          self.active_promotions = value
-        end
-      end
-
-      if attributes.key?(:'aggregate_filters')
-        if (value = attributes[:'aggregate_filters']).is_a?(Hash)
-          self.aggregate_filters = value
-        end
-      end
-
-      if attributes.key?(:'aggregates')
-        if (value = attributes[:'aggregates']).is_a?(Hash)
-          self.aggregates = value
-        end
-      end
-
-      if attributes.key?(:'pipeline')
-        self.pipeline = attributes[:'pipeline']
-      end
-
-      if attributes.key?(:'processing_duration')
-        self.processing_duration = attributes[:'processing_duration']
-      end
-
-      if attributes.key?(:'redirects')
-        if (value = attributes[:'redirects']).is_a?(Hash)
-          self.redirects = value
-        end
-      end
-
-      if attributes.key?(:'results')
-        if (value = attributes[:'results']).is_a?(Array)
-          self.results = value
-        end
-      end
-
-      if attributes.key?(:'total_size')
-        self.total_size = attributes[:'total_size']
-      end
-
-      if attributes.key?(:'variables')
-        if (value = attributes[:'variables']).is_a?(Hash)
-          self.variables = value
-        end
+      if attributes.key?(:'key')
+        self.key = attributes[:'key']
       end
     end
 
@@ -164,15 +80,7 @@ module SajariAPIClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          active_promotions == o.active_promotions &&
-          aggregate_filters == o.aggregate_filters &&
-          aggregates == o.aggregates &&
-          pipeline == o.pipeline &&
-          processing_duration == o.processing_duration &&
-          redirects == o.redirects &&
-          results == o.results &&
-          total_size == o.total_size &&
-          variables == o.variables
+          key == o.key
     end
 
     # @see the `==` method
@@ -184,7 +92,7 @@ module SajariAPIClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [active_promotions, aggregate_filters, aggregates, pipeline, processing_duration, redirects, results, total_size, variables].hash
+      [key].hash
     end
 
     # Builds the object from hash

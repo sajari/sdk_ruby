@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["OpenAPI-Generator"]
   s.email       = ["support@sajari.com"]
-  s.homepage    = "https://github.com/sajari/sdk-ruby"
+  s.homepage    = "https://github.com/sajari/sdk_ruby"
   s.summary     = "Sajari API Ruby Gem"
   s.description = "Sajari is a smart, highly-configurable, real-time search service that enables thousands of businesses worldwide to provide amazing search experiences on their websites, stores, and applications."
   s.license     = "MIT"
