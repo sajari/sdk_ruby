@@ -1,14 +1,87 @@
 # SajariAPIClient::RecordsApi
 
-All URIs are relative to *https://api-gateway.sajari.com*
+All URIs are relative to *https://api.search.io*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**batch_update_records**](RecordsApi.md#batch_update_records) | **POST** /v4/collections/{collection_id}/records:batchUpdate | Batch update records |
 | [**batch_upsert_records**](RecordsApi.md#batch_upsert_records) | **POST** /v4/collections/{collection_id}/records:batchUpsert | Batch upsert records |
 | [**delete_record**](RecordsApi.md#delete_record) | **POST** /v4/collections/{collection_id}/records:delete | Delete record |
 | [**get_record**](RecordsApi.md#get_record) | **POST** /v4/collections/{collection_id}/records:get | Get record |
 | [**update_record**](RecordsApi.md#update_record) | **POST** /v4/collections/{collection_id}/records:update | Update record |
 | [**upsert_record**](RecordsApi.md#upsert_record) | **POST** /v4/collections/{collection_id}/records:upsert | Upsert record |
+
+
+## batch_update_records
+
+> <BatchUpdateRecordsResponse> batch_update_records(collection_id, batch_update_records_request)
+
+Batch update records
+
+The batch version of the [UpdateRecord](/api#operation/UpdateRecord) call.
+
+### Examples
+
+```ruby
+require 'time'
+require 'sdk_ruby'
+# setup authorization
+SajariAPIClient.configure do |config|
+  # Configure HTTP basic authorization: BasicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = SajariAPIClient::RecordsApi.new
+collection_id = 'collection_id_example' # String | The collection that contains the records to update, e.g. `my-collection`.
+batch_update_records_request = SajariAPIClient::BatchUpdateRecordsRequest.new({requests: [SajariAPIClient::UpdateRecordRequest.new({key: SajariAPIClient::RecordKey.new({field: 'field_example', value: 'value_example'}), record: { key: 3.56}, update_mask: 'update_mask_example'})]}) # BatchUpdateRecordsRequest | 
+
+begin
+  # Batch update records
+  result = api_instance.batch_update_records(collection_id, batch_update_records_request)
+  p result
+rescue SajariAPIClient::ApiError => e
+  puts "Error when calling RecordsApi->batch_update_records: #{e}"
+end
+```
+
+#### Using the batch_update_records_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<BatchUpdateRecordsResponse>, Integer, Hash)> batch_update_records_with_http_info(collection_id, batch_update_records_request)
+
+```ruby
+begin
+  # Batch update records
+  data, status_code, headers = api_instance.batch_update_records_with_http_info(collection_id, batch_update_records_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <BatchUpdateRecordsResponse>
+rescue SajariAPIClient::ApiError => e
+  puts "Error when calling RecordsApi->batch_update_records_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **collection_id** | **String** | The collection that contains the records to update, e.g. &#x60;my-collection&#x60;. |  |
+| **batch_update_records_request** | [**BatchUpdateRecordsRequest**](BatchUpdateRecordsRequest.md) |  |  |
+
+### Return type
+
+[**BatchUpdateRecordsResponse**](BatchUpdateRecordsResponse.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## batch_upsert_records
