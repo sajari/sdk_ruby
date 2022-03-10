@@ -251,7 +251,7 @@ api_instance = SajariAPIClient::RedirectsApi.new
 collection_id = 'collection_id_example' # String | The collection that owns this set of redirects, e.g. `my-collection`.
 opts = {
   page_size: 56, # Integer | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
-  page_token: 'page_token_example' # String | A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token.
+  page_token: 'page_token_example' # String | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token.
 }
 
 begin
@@ -287,7 +287,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. |  |
 | **page_size** | **Integer** | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] |
-| **page_token** | **String** | A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token. | [optional] |
+| **page_token** | **String** | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. | [optional] |
 
 ### Return type
 
