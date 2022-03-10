@@ -255,7 +255,7 @@ collection_id = 'collection_id_example' # String | The collection that owns the 
 type = 'TYPE_UNSPECIFIED' # String | The type of the pipeline to get the default version of.
 name = 'name_example' # String | The name of the pipeline to get the default version of, e.g. `my-pipeline`.
 opts = {
-  view: 'VIEW_UNSPECIFIED' # String | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
+  view: 'VIEW_UNSPECIFIED' # String | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
 }
 
 begin
@@ -292,7 +292,7 @@ end
 | **collection_id** | **String** | The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. |  |
 | **type** | **String** | The type of the pipeline to get the default version of. |  |
 | **name** | **String** | The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. |  |
-| **view** | **String** | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
+| **view** | **String** | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
 
@@ -334,7 +334,7 @@ type = 'TYPE_UNSPECIFIED' # String | The type of the pipeline to retrieve.
 name = 'name_example' # String | The name of the pipeline to retrieve, e.g. `my-pipeline`.
 version = 'version_example' # String | The version of the pipeline to retrieve, e.g. `42`.
 opts = {
-  view: 'VIEW_UNSPECIFIED' # String | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
+  view: 'VIEW_UNSPECIFIED' # String | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
 }
 
 begin
@@ -372,7 +372,7 @@ end
 | **type** | **String** | The type of the pipeline to retrieve. |  |
 | **name** | **String** | The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. |  |
 | **version** | **String** | The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. |  |
-| **view** | **String** | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
+| **view** | **String** | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
 
@@ -412,8 +412,8 @@ api_instance = SajariAPIClient::PipelinesApi.new
 collection_id = 'collection_id_example' # String | The collection that owns this set of pipelines, e.g. `my-collection`.
 opts = {
   page_size: 56, # Integer | The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
-  page_token: 'page_token_example', # String | A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token.
-  view: 'VIEW_UNSPECIFIED' # String | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
+  page_token: 'page_token_example', # String | A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token.
+  view: 'VIEW_UNSPECIFIED' # String | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.
 }
 
 begin
@@ -449,8 +449,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. |  |
 | **page_size** | **Integer** | The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] |
-| **page_token** | **String** | A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. | [optional] |
-| **view** | **String** | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
+| **page_token** | **String** | A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. | [optional] |
+| **view** | **String** | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
 

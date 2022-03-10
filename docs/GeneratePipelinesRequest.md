@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **query_training_fields** | **Array&lt;String&gt;** | List of fields to train query suggestions from. | [optional] |
-| **searchable_fields** | **Array&lt;String&gt;** | Prioritized list of fields to search. |  |
+| **query_training_fields** | **Array&lt;String&gt;** | A list of fields to train query suggestions from. | [optional] |
+| **searchable_fields** | **Array&lt;String&gt;** | A prioritized list of fields to search. |  |
 
 ## Example
 

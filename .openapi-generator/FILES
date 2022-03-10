@@ -5,6 +5,7 @@ Gemfile
 README.md
 Rakefile
 docs/ActivePromotion.md
+docs/Banner.md
 docs/BatchCreateSchemaFieldsRequest.md
 docs/BatchCreateSchemaFieldsResponse.md
 docs/BatchCreateSchemaFieldsResponseError.md
@@ -22,7 +23,11 @@ docs/Collection.md
 docs/CollectionsApi.md
 docs/DeleteRecordRequest.md
 docs/Error.md
+docs/Event.md
 docs/EventsApi.md
+docs/ExperimentRequest.md
+docs/ExperimentRequestPipeline.md
+docs/ExperimentResponse.md
 docs/GeneratePipelinesRequest.md
 docs/GeneratePipelinesResponse.md
 docs/GetDefaultPipelineResponse.md
@@ -32,6 +37,7 @@ docs/GetRecordRequest.md
 docs/ListCollectionsResponse.md
 docs/ListPipelinesRequestView.md
 docs/ListPipelinesResponse.md
+docs/ListPromotionsRequestPromotionView.md
 docs/ListPromotionsResponse.md
 docs/ListRedirectsResponse.md
 docs/ListSchemaFieldsResponse.md
@@ -47,6 +53,7 @@ docs/PromotionExclusion.md
 docs/PromotionFilterBoost.md
 docs/PromotionFilterCondition.md
 docs/PromotionPin.md
+docs/PromotionPinMode.md
 docs/PromotionRangeBoost.md
 docs/PromotionsApi.md
 docs/ProtobufAny.md
@@ -83,6 +90,7 @@ docs/SendEventRequest.md
 docs/SetDefaultPipelineRequest.md
 docs/SetDefaultVersionRequest.md
 docs/Status.md
+docs/TextPosition.md
 docs/UpdateRecordRequest.md
 docs/UpsertRecordRequest.md
 docs/UpsertRecordRequestPipeline.md
@@ -99,6 +107,7 @@ lib/sdk_ruby/api_client.rb
 lib/sdk_ruby/api_error.rb
 lib/sdk_ruby/configuration.rb
 lib/sdk_ruby/models/active_promotion.rb
+lib/sdk_ruby/models/banner.rb
 lib/sdk_ruby/models/batch_create_schema_fields_request.rb
 lib/sdk_ruby/models/batch_create_schema_fields_response.rb
 lib/sdk_ruby/models/batch_create_schema_fields_response_error.rb
@@ -115,6 +124,10 @@ lib/sdk_ruby/models/batch_upsert_records_response_variables.rb
 lib/sdk_ruby/models/collection.rb
 lib/sdk_ruby/models/delete_record_request.rb
 lib/sdk_ruby/models/error.rb
+lib/sdk_ruby/models/event.rb
+lib/sdk_ruby/models/experiment_request.rb
+lib/sdk_ruby/models/experiment_request_pipeline.rb
+lib/sdk_ruby/models/experiment_response.rb
 lib/sdk_ruby/models/generate_pipelines_request.rb
 lib/sdk_ruby/models/generate_pipelines_response.rb
 lib/sdk_ruby/models/get_default_pipeline_response.rb
@@ -124,6 +137,7 @@ lib/sdk_ruby/models/get_record_request.rb
 lib/sdk_ruby/models/list_collections_response.rb
 lib/sdk_ruby/models/list_pipelines_request_view.rb
 lib/sdk_ruby/models/list_pipelines_response.rb
+lib/sdk_ruby/models/list_promotions_request_promotion_view.rb
 lib/sdk_ruby/models/list_promotions_response.rb
 lib/sdk_ruby/models/list_redirects_response.rb
 lib/sdk_ruby/models/list_schema_fields_response.rb
@@ -138,6 +152,7 @@ lib/sdk_ruby/models/promotion_exclusion.rb
 lib/sdk_ruby/models/promotion_filter_boost.rb
 lib/sdk_ruby/models/promotion_filter_condition.rb
 lib/sdk_ruby/models/promotion_pin.rb
+lib/sdk_ruby/models/promotion_pin_mode.rb
 lib/sdk_ruby/models/promotion_range_boost.rb
 lib/sdk_ruby/models/protobuf_any.rb
 lib/sdk_ruby/models/protobuf_field_mask.rb
@@ -170,6 +185,7 @@ lib/sdk_ruby/models/send_event_request.rb
 lib/sdk_ruby/models/set_default_pipeline_request.rb
 lib/sdk_ruby/models/set_default_version_request.rb
 lib/sdk_ruby/models/status.rb
+lib/sdk_ruby/models/text_position.rb
 lib/sdk_ruby/models/update_record_request.rb
 lib/sdk_ruby/models/upsert_record_request.rb
 lib/sdk_ruby/models/upsert_record_request_pipeline.rb
@@ -178,10 +194,12 @@ lib/sdk_ruby/version.rb
 sdk_ruby.gemspec
 spec/api_client_spec.rb
 spec/configuration_spec.rb
-spec/models/batch_update_records_request_spec.rb
-spec/models/batch_update_records_response_error_spec.rb
-spec/models/batch_update_records_response_record_spec.rb
-spec/models/batch_update_records_response_spec.rb
-spec/models/promotion_category_spec.rb
-spec/models/protobuf_field_mask_spec.rb
+spec/models/banner_spec.rb
+spec/models/event_spec.rb
+spec/models/experiment_request_pipeline_spec.rb
+spec/models/experiment_request_spec.rb
+spec/models/experiment_response_spec.rb
+spec/models/list_promotions_request_promotion_view_spec.rb
+spec/models/promotion_pin_mode_spec.rb
+spec/models/text_position_spec.rb
 spec/spec_helper.rb

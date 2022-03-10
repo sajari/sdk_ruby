@@ -251,7 +251,8 @@ api_instance = SajariAPIClient::PromotionsApi.new
 collection_id = 'collection_id_example' # String | The collection that owns this set of promotions, e.g. `my-collection`.
 opts = {
   page_size: 56, # Integer | The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
-  page_token: 'page_token_example' # String | A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token.
+  page_token: 'page_token_example', # String | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token.
+  view: 'PROMOTION_VIEW_UNSPECIFIED' # String | The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `FULL` view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value.
 }
 
 begin
@@ -287,7 +288,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. |  |
 | **page_size** | **Integer** | The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] |
-| **page_token** | **String** | A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. | [optional] |
+| **page_token** | **String** | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. | [optional] |
+| **view** | **String** | The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. | [optional][default to &#39;PROMOTION_VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
 
