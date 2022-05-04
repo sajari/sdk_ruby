@@ -20,6 +20,7 @@ docs/BatchUpsertRecordsResponseError.md
 docs/BatchUpsertRecordsResponseKey.md
 docs/BatchUpsertRecordsResponseVariables.md
 docs/Collection.md
+docs/CollectionType.md
 docs/CollectionsApi.md
 docs/DeleteRecordRequest.md
 docs/Error.md
@@ -30,10 +31,12 @@ docs/ExperimentRequestPipeline.md
 docs/ExperimentResponse.md
 docs/GeneratePipelinesRequest.md
 docs/GeneratePipelinesResponse.md
+docs/GetCollectionRequestView.md
 docs/GetDefaultPipelineResponse.md
 docs/GetDefaultVersionRequestView.md
 docs/GetPipelineRequestView.md
 docs/GetRecordRequest.md
+docs/ListCollectionsRequestView.md
 docs/ListCollectionsResponse.md
 docs/ListPipelinesRequestView.md
 docs/ListPipelinesResponse.md
@@ -122,6 +125,7 @@ lib/sdk_ruby/models/batch_upsert_records_response_error.rb
 lib/sdk_ruby/models/batch_upsert_records_response_key.rb
 lib/sdk_ruby/models/batch_upsert_records_response_variables.rb
 lib/sdk_ruby/models/collection.rb
+lib/sdk_ruby/models/collection_type.rb
 lib/sdk_ruby/models/delete_record_request.rb
 lib/sdk_ruby/models/error.rb
 lib/sdk_ruby/models/event.rb
@@ -130,10 +134,12 @@ lib/sdk_ruby/models/experiment_request_pipeline.rb
 lib/sdk_ruby/models/experiment_response.rb
 lib/sdk_ruby/models/generate_pipelines_request.rb
 lib/sdk_ruby/models/generate_pipelines_response.rb
+lib/sdk_ruby/models/get_collection_request_view.rb
 lib/sdk_ruby/models/get_default_pipeline_response.rb
 lib/sdk_ruby/models/get_default_version_request_view.rb
 lib/sdk_ruby/models/get_pipeline_request_view.rb
 lib/sdk_ruby/models/get_record_request.rb
+lib/sdk_ruby/models/list_collections_request_view.rb
 lib/sdk_ruby/models/list_collections_response.rb
 lib/sdk_ruby/models/list_pipelines_request_view.rb
 lib/sdk_ruby/models/list_pipelines_response.rb
@@ -194,12 +200,7 @@ lib/sdk_ruby/version.rb
 sdk_ruby.gemspec
 spec/api_client_spec.rb
 spec/configuration_spec.rb
-spec/models/banner_spec.rb
-spec/models/event_spec.rb
-spec/models/experiment_request_pipeline_spec.rb
-spec/models/experiment_request_spec.rb
-spec/models/experiment_response_spec.rb
-spec/models/list_promotions_request_promotion_view_spec.rb
-spec/models/promotion_pin_mode_spec.rb
-spec/models/text_position_spec.rb
+spec/models/collection_type_spec.rb
+spec/models/get_collection_request_view_spec.rb
+spec/models/list_collections_request_view_spec.rb
 spec/spec_helper.rb

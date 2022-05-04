@@ -24,6 +24,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;.
     # @param pipeline [Pipeline] The pipeline to create.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Pipeline]
     def create_pipeline(collection_id, pipeline, opts = {})
       data, _status_code, _headers = create_pipeline_with_http_info(collection_id, pipeline, opts)
@@ -35,6 +36,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;.
     # @param pipeline [Pipeline] The pipeline to create.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Pipeline, Integer, Hash)>] Pipeline data, response status code and response headers
     def create_pipeline_with_http_info(collection_id, pipeline, opts = {})
       if @api_client.config.debugging
@@ -63,6 +65,7 @@ module SajariAPIClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -248,6 +251,7 @@ module SajariAPIClient
     # @param type [String] The type of the pipeline to get the default version of.
     # @param name [String] The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [String] :view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (default to 'VIEW_UNSPECIFIED')
     # @return [Pipeline]
     def get_default_version(collection_id, type, name, opts = {})
@@ -261,6 +265,7 @@ module SajariAPIClient
     # @param type [String] The type of the pipeline to get the default version of.
     # @param name [String] The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [String] :view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration.
     # @return [Array<(Pipeline, Integer, Hash)>] Pipeline data, response status code and response headers
     def get_default_version_with_http_info(collection_id, type, name, opts = {})
@@ -299,6 +304,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -336,6 +342,7 @@ module SajariAPIClient
     # @param name [String] The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.
     # @param version [String] The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [String] :view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (default to 'VIEW_UNSPECIFIED')
     # @return [Pipeline]
     def get_pipeline(collection_id, type, name, version, opts = {})
@@ -350,6 +357,7 @@ module SajariAPIClient
     # @param name [String] The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.
     # @param version [String] The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [String] :view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration.
     # @return [Array<(Pipeline, Integer, Hash)>] Pipeline data, response status code and response headers
     def get_pipeline_with_http_info(collection_id, type, name, version, opts = {})
@@ -392,6 +400,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'application/yaml'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -426,6 +435,7 @@ module SajariAPIClient
     # Retrieve a list of pipelines in a collection.
     # @param collection_id [String] The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [Integer] :page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
     # @option opts [String] :page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token.
     # @option opts [String] :view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (default to 'VIEW_UNSPECIFIED')
@@ -439,6 +449,7 @@ module SajariAPIClient
     # Retrieve a list of pipelines in a collection.
     # @param collection_id [String] The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [Integer] :page_size The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
     # @option opts [String] :page_token A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token.
     # @option opts [String] :view The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration.
@@ -468,6 +479,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

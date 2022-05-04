@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.4.0
 =end
 
 module SajariAPIClient
-  VERSION = '5.0.0'
+  VERSION = '5.1.0'
 end

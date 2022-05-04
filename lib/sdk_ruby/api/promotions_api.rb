@@ -24,6 +24,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.
     # @param promotion [Promotion] The promotion to create.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Promotion]
     def create_promotion(collection_id, promotion, opts = {})
       data, _status_code, _headers = create_promotion_with_http_info(collection_id, promotion, opts)
@@ -35,6 +36,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.
     # @param promotion [Promotion] The promotion to create.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Promotion, Integer, Hash)>] Promotion data, response status code and response headers
     def create_promotion_with_http_info(collection_id, promotion, opts = {})
       if @api_client.config.debugging
@@ -63,6 +65,7 @@ module SajariAPIClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -98,6 +101,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.
     # @param promotion_id [String] The promotion to delete, e.g. &#x60;1234&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Object]
     def delete_promotion(collection_id, promotion_id, opts = {})
       data, _status_code, _headers = delete_promotion_with_http_info(collection_id, promotion_id, opts)
@@ -109,6 +113,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.
     # @param promotion_id [String] The promotion to delete, e.g. &#x60;1234&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_promotion_with_http_info(collection_id, promotion_id, opts = {})
       if @api_client.config.debugging
@@ -132,6 +137,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -167,6 +173,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.
     # @param promotion_id [String] The promotion to retrieve, e.g. &#x60;1234&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Promotion]
     def get_promotion(collection_id, promotion_id, opts = {})
       data, _status_code, _headers = get_promotion_with_http_info(collection_id, promotion_id, opts)
@@ -178,6 +185,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.
     # @param promotion_id [String] The promotion to retrieve, e.g. &#x60;1234&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Promotion, Integer, Hash)>] Promotion data, response status code and response headers
     def get_promotion_with_http_info(collection_id, promotion_id, opts = {})
       if @api_client.config.debugging
@@ -201,6 +209,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -235,6 +244,7 @@ module SajariAPIClient
     # Retrieve a list of promotions in a collection.  Promotion pins, exclusions and filter boosts are not returned in this call.
     # @param collection_id [String] The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [Integer] :page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
     # @option opts [String] :page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token.
     # @option opts [String] :view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (default to 'PROMOTION_VIEW_UNSPECIFIED')
@@ -248,6 +258,7 @@ module SajariAPIClient
     # Retrieve a list of promotions in a collection.  Promotion pins, exclusions and filter boosts are not returned in this call.
     # @param collection_id [String] The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [Integer] :page_size The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
     # @option opts [String] :page_token A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token.
     # @option opts [String] :view The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value.
@@ -277,6 +288,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -314,6 +326,7 @@ module SajariAPIClient
     # @param update_mask [String] The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.
     # @param promotion [Promotion] Details of the promotion to update.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Promotion]
     def update_promotion(collection_id, promotion_id, update_mask, promotion, opts = {})
       data, _status_code, _headers = update_promotion_with_http_info(collection_id, promotion_id, update_mask, promotion, opts)
@@ -327,6 +340,7 @@ module SajariAPIClient
     # @param update_mask [String] The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.
     # @param promotion [Promotion] Details of the promotion to update.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Promotion, Integer, Hash)>] Promotion data, response status code and response headers
     def update_promotion_with_http_info(collection_id, promotion_id, update_mask, promotion, opts = {})
       if @api_client.config.debugging
@@ -364,6 +378,7 @@ module SajariAPIClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

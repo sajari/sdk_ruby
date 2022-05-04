@@ -167,6 +167,75 @@ module SajariAPIClient
       return data, status_code, headers
     end
 
+    # Delete schema field
+    # Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  > Note: This operation cannot be reversed.
+    # @param collection_id [String] The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.
+    # @param schema_field_name [String] The name of the schema field to delete.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def delete_schema_field(collection_id, schema_field_name, opts = {})
+      data, _status_code, _headers = delete_schema_field_with_http_info(collection_id, schema_field_name, opts)
+      data
+    end
+
+    # Delete schema field
+    # Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+    # @param collection_id [String] The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.
+    # @param schema_field_name [String] The name of the schema field to delete.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
+    def delete_schema_field_with_http_info(collection_id, schema_field_name, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SchemaApi.delete_schema_field ...'
+      end
+      # verify the required parameter 'collection_id' is set
+      if @api_client.config.client_side_validation && collection_id.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_id' when calling SchemaApi.delete_schema_field"
+      end
+      # verify the required parameter 'schema_field_name' is set
+      if @api_client.config.client_side_validation && schema_field_name.nil?
+        fail ArgumentError, "Missing the required parameter 'schema_field_name' when calling SchemaApi.delete_schema_field"
+      end
+      # resource path
+      local_var_path = '/v4/collections/{collection_id}/schemaFields/{schema_field_name}'.sub('{' + 'collection_id' + '}', CGI.escape(collection_id.to_s)).sub('{' + 'schema_field_name' + '}', CGI.escape(schema_field_name.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Object'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['BasicAuth']
+
+      new_options = opts.merge(
+        :operation => :"SchemaApi.delete_schema_field",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SchemaApi#delete_schema_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List schema fields
     # Retrieve a list of schema fields in a collection.
     # @param collection_id [String] The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.
@@ -232,6 +301,89 @@ module SajariAPIClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SchemaApi#list_schema_fields\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update schema field
+    # Update the details of a schema field.  Only `name` and `description` can be updated.
+    # @param collection_id [String] The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.
+    # @param schema_field_name [String] The name of the schema field to update.
+    # @param schema_field [SchemaField] The schema field details to update.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :update_mask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value.
+    # @return [SchemaField]
+    def update_schema_field(collection_id, schema_field_name, schema_field, opts = {})
+      data, _status_code, _headers = update_schema_field_with_http_info(collection_id, schema_field_name, schema_field, opts)
+      data
+    end
+
+    # Update schema field
+    # Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+    # @param collection_id [String] The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.
+    # @param schema_field_name [String] The name of the schema field to update.
+    # @param schema_field [SchemaField] The schema field details to update.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :update_mask The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value.
+    # @return [Array<(SchemaField, Integer, Hash)>] SchemaField data, response status code and response headers
+    def update_schema_field_with_http_info(collection_id, schema_field_name, schema_field, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: SchemaApi.update_schema_field ...'
+      end
+      # verify the required parameter 'collection_id' is set
+      if @api_client.config.client_side_validation && collection_id.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_id' when calling SchemaApi.update_schema_field"
+      end
+      # verify the required parameter 'schema_field_name' is set
+      if @api_client.config.client_side_validation && schema_field_name.nil?
+        fail ArgumentError, "Missing the required parameter 'schema_field_name' when calling SchemaApi.update_schema_field"
+      end
+      # verify the required parameter 'schema_field' is set
+      if @api_client.config.client_side_validation && schema_field.nil?
+        fail ArgumentError, "Missing the required parameter 'schema_field' when calling SchemaApi.update_schema_field"
+      end
+      # resource path
+      local_var_path = '/v4/collections/{collection_id}/schemaFields/{schema_field_name}'.sub('{' + 'collection_id' + '}', CGI.escape(collection_id.to_s)).sub('{' + 'schema_field_name' + '}', CGI.escape(schema_field_name.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'update_mask'] = opts[:'update_mask'] if !opts[:'update_mask'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(schema_field)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SchemaField'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['BasicAuth']
+
+      new_options = opts.merge(
+        :operation => :"SchemaApi.update_schema_field",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SchemaApi#update_schema_field\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -24,6 +24,7 @@ module SajariAPIClient
     # @param collection_id [String] The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.
     # @param collection [Collection] Details of the collection to create.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Collection]
     def create_collection(collection_id, collection, opts = {})
       data, _status_code, _headers = create_collection_with_http_info(collection_id, collection, opts)
@@ -35,6 +36,7 @@ module SajariAPIClient
     # @param collection_id [String] The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.
     # @param collection [Collection] Details of the collection to create.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Collection, Integer, Hash)>] Collection data, response status code and response headers
     def create_collection_with_http_info(collection_id, collection, opts = {})
       if @api_client.config.debugging
@@ -64,6 +66,7 @@ module SajariAPIClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -98,6 +101,7 @@ module SajariAPIClient
     # Delete a collection and all of its associated data.  > Note: This operation cannot be reversed.
     # @param collection_id [String] The collection to delete, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Object]
     def delete_collection(collection_id, opts = {})
       data, _status_code, _headers = delete_collection_with_http_info(collection_id, opts)
@@ -108,6 +112,7 @@ module SajariAPIClient
     # Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
     # @param collection_id [String] The collection to delete, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_collection_with_http_info(collection_id, opts = {})
       if @api_client.config.debugging
@@ -127,6 +132,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -235,6 +241,8 @@ module SajariAPIClient
     # Retrieve the details of a collection.
     # @param collection_id [String] The collection to retrieve, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
+    # @option opts [String] :view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (default to 'VIEW_UNSPECIFIED')
     # @return [Collection]
     def get_collection(collection_id, opts = {})
       data, _status_code, _headers = get_collection_with_http_info(collection_id, opts)
@@ -245,6 +253,8 @@ module SajariAPIClient
     # Retrieve the details of a collection.
     # @param collection_id [String] The collection to retrieve, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
+    # @option opts [String] :view The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage.
     # @return [Array<(Collection, Integer, Hash)>] Collection data, response status code and response headers
     def get_collection_with_http_info(collection_id, opts = {})
       if @api_client.config.debugging
@@ -254,16 +264,22 @@ module SajariAPIClient
       if @api_client.config.client_side_validation && collection_id.nil?
         fail ArgumentError, "Missing the required parameter 'collection_id' when calling CollectionsApi.get_collection"
       end
+      allowable_values = ["VIEW_UNSPECIFIED", "BASIC", "FULL"]
+      if @api_client.config.client_side_validation && opts[:'view'] && !allowable_values.include?(opts[:'view'])
+        fail ArgumentError, "invalid value for \"view\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/v4/collections/{collection_id}'.sub('{' + 'collection_id' + '}', CGI.escape(collection_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'view'] = opts[:'view'] if !opts[:'view'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -297,8 +313,10 @@ module SajariAPIClient
     # List collections
     # Retrieve a list of collections in an account.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [Integer] :page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100.
     # @option opts [String] :page_token A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token.
+    # @option opts [String] :view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (default to 'VIEW_UNSPECIFIED')
     # @return [ListCollectionsResponse]
     def list_collections(opts = {})
       data, _status_code, _headers = list_collections_with_http_info(opts)
@@ -308,12 +326,18 @@ module SajariAPIClient
     # List collections
     # Retrieve a list of collections in an account.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [Integer] :page_size The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100.
     # @option opts [String] :page_token A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token.
+    # @option opts [String] :view The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage.
     # @return [Array<(ListCollectionsResponse, Integer, Hash)>] ListCollectionsResponse data, response status code and response headers
     def list_collections_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CollectionsApi.list_collections ...'
+      end
+      allowable_values = ["VIEW_UNSPECIFIED", "BASIC", "FULL"]
+      if @api_client.config.client_side_validation && opts[:'view'] && !allowable_values.include?(opts[:'view'])
+        fail ArgumentError, "invalid value for \"view\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/v4/collections'
@@ -322,11 +346,13 @@ module SajariAPIClient
       query_params = opts[:query_params] || {}
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'page_token'] = opts[:'page_token'] if !opts[:'page_token'].nil?
+      query_params[:'view'] = opts[:'view'] if !opts[:'view'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -509,7 +535,7 @@ module SajariAPIClient
     end
 
     # Track event
-    # Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an `Account-Id` header.
+    # Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set `type` to `redirect`.  Note: You must pass an `Account-Id` header.
     # @param account_id [String] The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @param collection_id [String] The collection to track the event against, e.g. &#x60;my-collection&#x60;.
     # @param event [Event] The details of the event to track.
@@ -521,7 +547,7 @@ module SajariAPIClient
     end
 
     # Track event
-    # Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+    # Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
     # @param account_id [String] The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @param collection_id [String] The collection to track the event against, e.g. &#x60;my-collection&#x60;.
     # @param event [Event] The details of the event to track.
@@ -594,6 +620,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection to update, e.g. &#x60;my-collection&#x60;.
     # @param collection [Collection] The details of the collection to update.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [String] :update_mask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.
     # @return [Collection]
     def update_collection(collection_id, collection, opts = {})
@@ -606,6 +633,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection to update, e.g. &#x60;my-collection&#x60;.
     # @param collection [Collection] The details of the collection to update.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [String] :update_mask The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.
     # @return [Array<(Collection, Integer, Hash)>] Collection data, response status code and response headers
     def update_collection_with_http_info(collection_id, collection, opts = {})
@@ -636,6 +664,7 @@ module SajariAPIClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

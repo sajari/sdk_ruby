@@ -13,7 +13,7 @@ All URIs are relative to *https://api.search.io*
 
 ## create_redirect
 
-> <Redirect> create_redirect(collection_id, redirect)
+> <Redirect> create_redirect(collection_id, redirect, opts)
 
 Create redirect
 
@@ -34,10 +34,13 @@ end
 api_instance = SajariAPIClient::RedirectsApi.new
 collection_id = 'collection_id_example' # String | The collection to create a redirect in, e.g. `my-collection`.
 redirect = SajariAPIClient::Redirect.new({condition: 'condition_example', target: 'target_example'}) # Redirect | The redirect to create.
+opts = {
+  account_id: 'account_id_example' # String | The account that owns the collection, e.g. `1618535966441231024`.
+}
 
 begin
   # Create redirect
-  result = api_instance.create_redirect(collection_id, redirect)
+  result = api_instance.create_redirect(collection_id, redirect, opts)
   p result
 rescue SajariAPIClient::ApiError => e
   puts "Error when calling RedirectsApi->create_redirect: #{e}"
@@ -48,12 +51,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Redirect>, Integer, Hash)> create_redirect_with_http_info(collection_id, redirect)
+> <Array(<Redirect>, Integer, Hash)> create_redirect_with_http_info(collection_id, redirect, opts)
 
 ```ruby
 begin
   # Create redirect
-  data, status_code, headers = api_instance.create_redirect_with_http_info(collection_id, redirect)
+  data, status_code, headers = api_instance.create_redirect_with_http_info(collection_id, redirect, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Redirect>
@@ -68,6 +71,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. |  |
 | **redirect** | [**Redirect**](Redirect.md) | The redirect to create. |  |
+| **account_id** | **String** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -85,7 +89,7 @@ end
 
 ## delete_redirect
 
-> Object delete_redirect(collection_id, redirect_id)
+> Object delete_redirect(collection_id, redirect_id, opts)
 
 Delete redirect
 
@@ -106,10 +110,13 @@ end
 api_instance = SajariAPIClient::RedirectsApi.new
 collection_id = 'collection_id_example' # String | The collection the redirect belongs to, e.g. `my-collection`.
 redirect_id = 'redirect_id_example' # String | The redirect to delete, e.g. `1234`.
+opts = {
+  account_id: 'account_id_example' # String | The account that owns the collection, e.g. `1618535966441231024`.
+}
 
 begin
   # Delete redirect
-  result = api_instance.delete_redirect(collection_id, redirect_id)
+  result = api_instance.delete_redirect(collection_id, redirect_id, opts)
   p result
 rescue SajariAPIClient::ApiError => e
   puts "Error when calling RedirectsApi->delete_redirect: #{e}"
@@ -120,12 +127,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> delete_redirect_with_http_info(collection_id, redirect_id)
+> <Array(Object, Integer, Hash)> delete_redirect_with_http_info(collection_id, redirect_id, opts)
 
 ```ruby
 begin
   # Delete redirect
-  data, status_code, headers = api_instance.delete_redirect_with_http_info(collection_id, redirect_id)
+  data, status_code, headers = api_instance.delete_redirect_with_http_info(collection_id, redirect_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -140,6 +147,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. |  |
 | **redirect_id** | **String** | The redirect to delete, e.g. &#x60;1234&#x60;. |  |
+| **account_id** | **String** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -157,7 +165,7 @@ end
 
 ## get_redirect
 
-> <Redirect> get_redirect(collection_id, redirect_id)
+> <Redirect> get_redirect(collection_id, redirect_id, opts)
 
 Get redirect
 
@@ -178,10 +186,13 @@ end
 api_instance = SajariAPIClient::RedirectsApi.new
 collection_id = 'collection_id_example' # String | The collection that owns the redirect, e.g. `my-collection`.
 redirect_id = 'redirect_id_example' # String | The redirect to retrieve, e.g. `1234`.
+opts = {
+  account_id: 'account_id_example' # String | The account that owns the collection, e.g. `1618535966441231024`.
+}
 
 begin
   # Get redirect
-  result = api_instance.get_redirect(collection_id, redirect_id)
+  result = api_instance.get_redirect(collection_id, redirect_id, opts)
   p result
 rescue SajariAPIClient::ApiError => e
   puts "Error when calling RedirectsApi->get_redirect: #{e}"
@@ -192,12 +203,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Redirect>, Integer, Hash)> get_redirect_with_http_info(collection_id, redirect_id)
+> <Array(<Redirect>, Integer, Hash)> get_redirect_with_http_info(collection_id, redirect_id, opts)
 
 ```ruby
 begin
   # Get redirect
-  data, status_code, headers = api_instance.get_redirect_with_http_info(collection_id, redirect_id)
+  data, status_code, headers = api_instance.get_redirect_with_http_info(collection_id, redirect_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Redirect>
@@ -212,6 +223,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. |  |
 | **redirect_id** | **String** | The redirect to retrieve, e.g. &#x60;1234&#x60;. |  |
+| **account_id** | **String** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -250,6 +262,7 @@ end
 api_instance = SajariAPIClient::RedirectsApi.new
 collection_id = 'collection_id_example' # String | The collection that owns this set of redirects, e.g. `my-collection`.
 opts = {
+  account_id: 'account_id_example', # String | The account that owns the collection, e.g. `1618535966441231024`.
   page_size: 56, # Integer | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
   page_token: 'page_token_example' # String | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token.
 }
@@ -286,6 +299,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. |  |
+| **account_id** | **String** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 | **page_size** | **Integer** | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] |
 | **page_token** | **String** | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. | [optional] |
 
@@ -305,7 +319,7 @@ end
 
 ## update_redirect
 
-> <Redirect> update_redirect(collection_id, redirect_id, update_mask, redirect)
+> <Redirect> update_redirect(collection_id, redirect_id, update_mask, redirect, opts)
 
 Update redirect
 
@@ -328,10 +342,13 @@ collection_id = 'collection_id_example' # String | The collection the redirect b
 redirect_id = 'redirect_id_example' # String | The redirect to update, e.g. `1234`.
 update_mask = 'update_mask_example' # String | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `condition`, `target`.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.
 redirect = SajariAPIClient::Redirect.new({condition: 'condition_example', target: 'target_example'}) # Redirect | Details of the redirect to update.
+opts = {
+  account_id: 'account_id_example' # String | The account that owns the collection, e.g. `1618535966441231024`.
+}
 
 begin
   # Update redirect
-  result = api_instance.update_redirect(collection_id, redirect_id, update_mask, redirect)
+  result = api_instance.update_redirect(collection_id, redirect_id, update_mask, redirect, opts)
   p result
 rescue SajariAPIClient::ApiError => e
   puts "Error when calling RedirectsApi->update_redirect: #{e}"
@@ -342,12 +359,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Redirect>, Integer, Hash)> update_redirect_with_http_info(collection_id, redirect_id, update_mask, redirect)
+> <Array(<Redirect>, Integer, Hash)> update_redirect_with_http_info(collection_id, redirect_id, update_mask, redirect, opts)
 
 ```ruby
 begin
   # Update redirect
-  data, status_code, headers = api_instance.update_redirect_with_http_info(collection_id, redirect_id, update_mask, redirect)
+  data, status_code, headers = api_instance.update_redirect_with_http_info(collection_id, redirect_id, update_mask, redirect, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Redirect>
@@ -364,6 +381,7 @@ end
 | **redirect_id** | **String** | The redirect to update, e.g. &#x60;1234&#x60;. |  |
 | **update_mask** | **String** | The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. |  |
 | **redirect** | [**Redirect**](Redirect.md) | Details of the redirect to update. |  |
+| **account_id** | **String** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
