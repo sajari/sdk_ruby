@@ -14,9 +14,9 @@ require 'date'
 require 'time'
 
 module SajariAPIClient
-  # A set of filters of the form `field = 'value'`. Matches a query if the set of filters in the condition matches exactly the set of filters associated with it.
+  # A set of filters of the form `field = 'value'`. Matches a query if all filters are present in that query.
   class PromotionFilterCondition
-    # A filter of the form `field = 'value'`.
+    # A filter of the form `field = 'value'`. All of these filters must be present in a query's filter in order for the promotion to be considered active.
     attr_accessor :filter
 
     # Attribute mapping from ruby-style variable name to JSON key.

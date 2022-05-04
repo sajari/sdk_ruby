@@ -21,7 +21,7 @@ module SajariAPIClient
     # The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/docs/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
     attr_accessor :authorized_query_domains
 
-    # Output only. Time the collection was created.
+    # Output only. The time the collection was created.
     attr_accessor :create_time
 
     # The collection's display name. You can change this at any time.

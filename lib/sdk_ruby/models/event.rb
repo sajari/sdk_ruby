@@ -31,7 +31,7 @@ module SajariAPIClient
     # The identifier of the result the event is about.
     attr_accessor :result_id
 
-    # The type of event, e.g. `click`, `purchase`, `add_to_cart`.
+    # The type of event, e.g. `click`, `redirect`, `purchase`, `add_to_cart`.
     attr_accessor :type
 
     # Attribute mapping from ruby-style variable name to JSON key.

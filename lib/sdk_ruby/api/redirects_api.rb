@@ -24,6 +24,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.
     # @param redirect [Redirect] The redirect to create.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Redirect]
     def create_redirect(collection_id, redirect, opts = {})
       data, _status_code, _headers = create_redirect_with_http_info(collection_id, redirect, opts)
@@ -35,6 +36,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.
     # @param redirect [Redirect] The redirect to create.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Redirect, Integer, Hash)>] Redirect data, response status code and response headers
     def create_redirect_with_http_info(collection_id, redirect, opts = {})
       if @api_client.config.debugging
@@ -63,6 +65,7 @@ module SajariAPIClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -98,6 +101,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.
     # @param redirect_id [String] The redirect to delete, e.g. &#x60;1234&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Object]
     def delete_redirect(collection_id, redirect_id, opts = {})
       data, _status_code, _headers = delete_redirect_with_http_info(collection_id, redirect_id, opts)
@@ -109,6 +113,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.
     # @param redirect_id [String] The redirect to delete, e.g. &#x60;1234&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
     def delete_redirect_with_http_info(collection_id, redirect_id, opts = {})
       if @api_client.config.debugging
@@ -132,6 +137,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -167,6 +173,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.
     # @param redirect_id [String] The redirect to retrieve, e.g. &#x60;1234&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Redirect]
     def get_redirect(collection_id, redirect_id, opts = {})
       data, _status_code, _headers = get_redirect_with_http_info(collection_id, redirect_id, opts)
@@ -178,6 +185,7 @@ module SajariAPIClient
     # @param collection_id [String] The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.
     # @param redirect_id [String] The redirect to retrieve, e.g. &#x60;1234&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Redirect, Integer, Hash)>] Redirect data, response status code and response headers
     def get_redirect_with_http_info(collection_id, redirect_id, opts = {})
       if @api_client.config.debugging
@@ -201,6 +209,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -235,6 +244,7 @@ module SajariAPIClient
     # Retrieve a list of redirects in a collection.
     # @param collection_id [String] The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [Integer] :page_size The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
     # @option opts [String] :page_token A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token.
     # @return [ListRedirectsResponse]
@@ -247,6 +257,7 @@ module SajariAPIClient
     # Retrieve a list of redirects in a collection.
     # @param collection_id [String] The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @option opts [Integer] :page_size The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.
     # @option opts [String] :page_token A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token.
     # @return [Array<(ListRedirectsResponse, Integer, Hash)>] ListRedirectsResponse data, response status code and response headers
@@ -270,6 +281,7 @@ module SajariAPIClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -307,6 +319,7 @@ module SajariAPIClient
     # @param update_mask [String] The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.
     # @param redirect [Redirect] Details of the redirect to update.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Redirect]
     def update_redirect(collection_id, redirect_id, update_mask, redirect, opts = {})
       data, _status_code, _headers = update_redirect_with_http_info(collection_id, redirect_id, update_mask, redirect, opts)
@@ -320,6 +333,7 @@ module SajariAPIClient
     # @param update_mask [String] The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.
     # @param redirect [Redirect] Details of the redirect to update.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :account_id The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.
     # @return [Array<(Redirect, Integer, Hash)>] Redirect data, response status code and response headers
     def update_redirect_with_http_info(collection_id, redirect_id, update_mask, redirect, opts = {})
       if @api_client.config.debugging
@@ -357,6 +371,7 @@ module SajariAPIClient
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
+      header_params[:'Account-Id'] = opts[:'account_id'] if !opts[:'account_id'].nil?
 
       # form parameters
       form_params = opts[:form_params] || {}

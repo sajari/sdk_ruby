@@ -19,7 +19,7 @@ module SajariAPIClient
     # An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string
     attr_accessor :metadata
 
-    # The name of event, e.g. `click`, `purchase`.
+    # The name of event, e.g. `click`, `redirect`, `purchase`.
     attr_accessor :name
 
     # The token corresponding to the search result that was interacted with, e.g. `eyJ...`.

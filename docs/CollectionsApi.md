@@ -17,7 +17,7 @@ All URIs are relative to *https://api.search.io*
 
 ## create_collection
 
-> <Collection> create_collection(collection_id, collection)
+> <Collection> create_collection(collection_id, collection, opts)
 
 Create collection
 
@@ -38,10 +38,13 @@ end
 api_instance = SajariAPIClient::CollectionsApi.new
 collection_id = 'collection_id_example' # String | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or `-` characters. Strictly speaking, it must match the regular expression: `^[A-Za-z][A-Za-z0-9\\-]*$`.
 collection = SajariAPIClient::Collection.new({display_name: 'display_name_example'}) # Collection | Details of the collection to create.
+opts = {
+  account_id: 'account_id_example' # String | The account that owns the collection, e.g. `1618535966441231024`.
+}
 
 begin
   # Create collection
-  result = api_instance.create_collection(collection_id, collection)
+  result = api_instance.create_collection(collection_id, collection, opts)
   p result
 rescue SajariAPIClient::ApiError => e
   puts "Error when calling CollectionsApi->create_collection: #{e}"
@@ -52,12 +55,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Collection>, Integer, Hash)> create_collection_with_http_info(collection_id, collection)
+> <Array(<Collection>, Integer, Hash)> create_collection_with_http_info(collection_id, collection, opts)
 
 ```ruby
 begin
   # Create collection
-  data, status_code, headers = api_instance.create_collection_with_http_info(collection_id, collection)
+  data, status_code, headers = api_instance.create_collection_with_http_info(collection_id, collection, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Collection>
@@ -72,6 +75,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. |  |
 | **collection** | [**Collection**](Collection.md) | Details of the collection to create. |  |
+| **account_id** | **String** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -89,7 +93,7 @@ end
 
 ## delete_collection
 
-> Object delete_collection(collection_id)
+> Object delete_collection(collection_id, opts)
 
 Delete collection
 
@@ -109,10 +113,13 @@ end
 
 api_instance = SajariAPIClient::CollectionsApi.new
 collection_id = 'collection_id_example' # String | The collection to delete, e.g. `my-collection`.
+opts = {
+  account_id: 'account_id_example' # String | The account that owns the collection, e.g. `1618535966441231024`.
+}
 
 begin
   # Delete collection
-  result = api_instance.delete_collection(collection_id)
+  result = api_instance.delete_collection(collection_id, opts)
   p result
 rescue SajariAPIClient::ApiError => e
   puts "Error when calling CollectionsApi->delete_collection: #{e}"
@@ -123,12 +130,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(Object, Integer, Hash)> delete_collection_with_http_info(collection_id)
+> <Array(Object, Integer, Hash)> delete_collection_with_http_info(collection_id, opts)
 
 ```ruby
 begin
   # Delete collection
-  data, status_code, headers = api_instance.delete_collection_with_http_info(collection_id)
+  data, status_code, headers = api_instance.delete_collection_with_http_info(collection_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
@@ -142,6 +149,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection to delete, e.g. &#x60;my-collection&#x60;. |  |
+| **account_id** | **String** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 
 ### Return type
 
@@ -231,7 +239,7 @@ end
 
 ## get_collection
 
-> <Collection> get_collection(collection_id)
+> <Collection> get_collection(collection_id, opts)
 
 Get collection
 
@@ -251,10 +259,14 @@ end
 
 api_instance = SajariAPIClient::CollectionsApi.new
 collection_id = 'collection_id_example' # String | The collection to retrieve, e.g. `my-collection`.
+opts = {
+  account_id: 'account_id_example', # String | The account that owns the collection, e.g. `1618535966441231024`.
+  view: 'VIEW_UNSPECIFIED' # String | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage.
+}
 
 begin
   # Get collection
-  result = api_instance.get_collection(collection_id)
+  result = api_instance.get_collection(collection_id, opts)
   p result
 rescue SajariAPIClient::ApiError => e
   puts "Error when calling CollectionsApi->get_collection: #{e}"
@@ -265,12 +277,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Collection>, Integer, Hash)> get_collection_with_http_info(collection_id)
+> <Array(<Collection>, Integer, Hash)> get_collection_with_http_info(collection_id, opts)
 
 ```ruby
 begin
   # Get collection
-  data, status_code, headers = api_instance.get_collection_with_http_info(collection_id)
+  data, status_code, headers = api_instance.get_collection_with_http_info(collection_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Collection>
@@ -284,6 +296,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection to retrieve, e.g. &#x60;my-collection&#x60;. |  |
+| **account_id** | **String** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
+| **view** | **String** | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
 
@@ -321,8 +335,10 @@ end
 
 api_instance = SajariAPIClient::CollectionsApi.new
 opts = {
+  account_id: 'account_id_example', # String | The account that owns this set of collections, e.g. `1618535966441231024`.
   page_size: 56, # Integer | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100.
-  page_token: 'page_token_example' # String | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token.
+  page_token: 'page_token_example', # String | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token.
+  view: 'VIEW_UNSPECIFIED' # String | The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage.
 }
 
 begin
@@ -356,8 +372,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **account_id** | **String** | The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 | **page_size** | **Integer** | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. | [optional] |
 | **page_token** | **String** | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. | [optional] |
+| **view** | **String** | The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional][default to &#39;VIEW_UNSPECIFIED&#39;] |
 
 ### Return type
 
@@ -527,7 +545,7 @@ end
 
 Track event
 
-Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an `Account-Id` header.
+Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set `type` to `redirect`.  Note: You must pass an `Account-Id` header.
 
 ### Examples
 
@@ -619,6 +637,7 @@ api_instance = SajariAPIClient::CollectionsApi.new
 collection_id = 'collection_id_example' # String | The collection to update, e.g. `my-collection`.
 collection = SajariAPIClient::Collection.new({display_name: 'display_name_example'}) # Collection | The details of the collection to update.
 opts = {
+  account_id: 'account_id_example', # String | The account that owns the collection, e.g. `1618535966441231024`.
   update_mask: 'update_mask_example' # String | The list of fields to update, separated by a comma, e.g. `authorized_query_domains,display_name`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.
 }
 
@@ -655,6 +674,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **collection_id** | **String** | The collection to update, e.g. &#x60;my-collection&#x60;. |  |
 | **collection** | [**Collection**](Collection.md) | The details of the collection to update. |  |
+| **account_id** | **String** | The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] |
 | **update_mask** | **String** | The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional] |
 
 ### Return type
